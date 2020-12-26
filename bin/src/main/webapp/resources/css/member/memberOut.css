@@ -1,0 +1,32 @@
+     
+     /* 공통속성  */
+     #board_list{ margin : 40px auto 0px auto; width: 1300px;}
+     
+     
+     /* 회원탈퇴 */
+     #infor1 { height: 50px; }
+     #infor2 { display: inline-block; width:250px; height: 10px; }
+     #infor3 { display: inline-block; height: 50px; font-size: 30px; font-weight:bold; text-align: center; } 
+     #infor4 { display: inline-block; height: 50px; font-size: 15px; font-weight:bold; text-align: center; color: gray; }
+     #space1 { height : 30px; }
+     #infor5 { display: inline-block; width:248px; height: 10px; }
+     
+     
+     /* 회원탈퇴 form */
+     #deleteDiv { display : inline-block; height : 200px; width:750px; font-size : 15px; 
+                  border: 2px solid lightgray; overflow: scroll; }
+     #space2 { height : 30px; }
+     #space3 { display: inline-block; width : 420px; height : 10px; }
+     #delCheck { display : inline-block; font-size: 15px; }
+     #space4 { height : 40px; }
+     #space5 { display: inline-block; width : 405px; height : 10px; }
+     
+     
+     /* 버튼 */
+     #applyBtn1 { background: lightgray; color:white; width: 200px; height : 50px; 
+                  border: none; font-size: 15px; font-weight: bold; cursor: pointer; }
+     #space6 { display: inline-block; width: 10px; }
+     #applyBtn2 { background: rgb(119,175,130); color:white; width: 200px; height : 50px; 
+                  border: none; font-size: 15px; font-weight: bold; cursor: pointer; }
+                  
+     #applyBtn1, #applyBtn2:focus{ outline: none; }

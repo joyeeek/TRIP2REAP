@@ -1,0 +1,107 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);    
+    
+    *{  font-family: 'Nanum Gothic'; margin: 0; padding: 0;}/* 나눔고딕 폰트 설정 */
+    header{ width:100%; margin: 0 auto; }
+    ul { margin : 0px; display: inline-block;}
+    a{ text-decoration:none;
+    	color:black;}
+    .swal-button:focus { box-shadow: none; }  
+    
+    
+    /* 상단바   */
+    #all_rootBar{ box-shadow: 0px 0px 6px 0px rgba(41, 42, 42, 0.15);  }
+    #rootBar{ background-color: rgb(243,243,243); margin : 0px auto; height: 35px; text-align: center; }
+	.root{ height: 25px; text-align: right; margin: 0px auto; padding: 10px 200px 0px 0px; }
+
+    /* 로그아웃 상태 */
+    .topBar{ display: inline-block; font-size: 13px; vertical-align: top; cursor:pointer; padding-right: 10px;  }
+    /* 로그인 상태  */
+    .topBar2_1{ display: inline-block; font-size: 13px; vertical-align: top; padding-right: 10px; }
+    .topBar2_2{ display: inline-block; font-size: 13px; vertical-align: top; padding-right: 10px; cursor:pointer; }
+    
+    
+    
+    /*  메인로고(전국방방곡곡)  */
+    #mainLogo { width: 300px; cursor: pointer; }
+      
+    
+    /*  메뉴(여행지, 여행코스, 여행후기, 호텔)  */
+	#menu_1{ display: flex; width: 100%; margin: 0px auto; }
+	#menu_2{ width: 27%; padding: 10px; text-align: left; }
+	#menu_3{ width: 50%; padding: 15px;}
+	#menu_4{ width: 5%;}
+	
+	.menus{ display: inline-block; padding: 10px 45px;}
+	.menus:hover{ cursor: pointer; }
+    #menuIcon1{ font-size: 30px; margin-right: 4px; color : rgb(202,240,170); vertical-center : super; margin-top:10px; }
+    #menuIcon2{ font-size: 28px; margin-right: 4px; color : rgb(242,203,97); vertical-center : super; margin-top:10px; }
+    #menuIcon3{ font-size: 27px; margin-right: 4px; color : rgb(218,219,255); vertical-center : super; margin-top:10px; }
+    #menuIcon4{ font-size: 24px; margin-right: 4px; color : rgb(255,167,167); vertical-center : super; margin-top:10px; }
+	.menu_name{ font-weight: bold; }
+	#menu_line { font-size: 35px; color: rgb(243,243,243); }
+	
+	
+	/* 로그인 창 */
+	#loginLabel { font-size: 35px; font-weight: 600; text-align: center; color : rgb(76,76,76); }
+	#loginDiv { text-align: center; }
+     #login_space0{ height : 25px; }
+     #login_space1{ height : 10px; }
+     #loginInfo_1{ display : inline-block; width: 230px; height: 35px; font-size: 12px; padding-left: 10px; border: none; font-weight: 500;  }
+     #loginInfo_2{ display : inline-block; width: 230px; height: 35px; font-size: 12px; padding-left: 10px; border: none; font-weight: 500;  }
+     #idIcon { display : inline-block; font-size: 21px; vertical-align: middle; color : rgb(180,180,180); }
+     #pwdIcon { display : inline-block; font-size: 20px; vertical-align: middle; color : rgb(180,180,180); }
+     #idIconDiv { display: inline-block; width : 22px; }
+     #pwdIconDiv { display: inline-block; width : 22px; }
+     #idPwdDiv{ display : inline-block; border: 1px solid rgb(166,166,166); width: 295px; text-align: center; }
+     .loginInfo, #loginButton, #loginButton2, #loginButton3:focus{ outline: none; }
+	 #login_space2{ height : 15px; }
+	 #login_spaceStart { height : 50px; }
+	 #login_spaceFoot { height : 60px; }	
+	 
+	 
+	 /* 비밀번호  */
+	 input[type="password"] {
+       font-family: caption;
+     }
+      
+	 
+	 /* 아이디 저장  */
+     #idSave_1{ width:300px; display: inline-block; text-align:left; margin-left: 75px; }   
+     label#idSave_3:before { content: "\f058"; font-family: "Font Awesome 5 Free"; color:rgb(185,185,185); cursor : pointer; 
+                             font-size: 18px; margin-right: 7px; vertical-align : middle; font-weight: 900; }
+     input#idSave_2:checked + label#idSave_3:before 
+     { content:"\f058"; font-family: "Font Awesome 5 Free"; color:pink; font-size: 18px; 
+       margin-right: 7px; vertical-align : middle; cursor : pointer; }
+     input#idSave_2 { display: none; }
+     #idSave_3{ font-size: 12px; vertical-align: middle; margin-left: 4px; line-height: 5px; }
+     
+     #idSave_4{ height: 16px; }
+     
+     /* 버튼 */      
+     #login_space3{ height: 10px; font-size: 12px; }
+     #login_space4{ height : 30px; }
+     #otherSpace { height: 20px; }
+     .search{ cursor: pointer; }
+     #otherBtn{ text-align: center; }
+     #otherLogin_space{ display: inline-block; width: 300px; }
+     #loginButton{ background-color: rgb(119,175,130); color: white; border: none;
+                   width: 300px; height: 40px; font-weight: bold; cursor: pointer; }
+     #loginButton:hover { background-color: rgb(130,185,140); }
+     #loginButton2{ display:inline-block; width: 301px; height : 42px; cursor: pointer; background: rgb(250,225,0); border: none; }
+     #loginButton2:hover { background-color: rgb(260,235,10); }
+     #login_space5{ height : 13px; }
+     #loginButton3{ display:inline-block; width: 301px; height : 42px; cursor: pointer; background: rgb(29,193,0); border: none; }
+     #loginButton3:hover { background-color: rgb(39,203,10); }
+     #btn2_1 { display: inline-block; margin-right: 5px; font-size: 18px; margin-bottom: 10px; }
+     #btn2_2 { display: inline-block; width: 124px; vertical-align: bottom; font-weight: 700; font-size: 12px; line-height: 43px; }
+     #btn3_1 { display: inline-block; margin-right: 6px; color: white; font-weight: 900; font-size: 18px; margin-bottom: 10px; }
+     #btn3_2 { display: inline-block; color: white; vertical-align: bottom; line-height: 43px; font-weight: 700; font-size: 12px; }
+	
+	
+	/* swal  */
+     .swal-modal { border: 12px solid lightgray; }
+     .swal-footer { text-align: center; }
+     .swal-button { background-color: rgb(255,234,234); font-size: 12px; text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3); color:gray; }
+     .swal-text { font-size: 15px; text-align: center; line-height: 23px; } 
+     .swal-button:not([disabled]):hover { background-color: rgb(255,216,216); }
+	

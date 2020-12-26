@@ -1,0 +1,799 @@
+:root {
+  --dark-green: #497f55;
+  --mid-green: #77af82;
+  --bright-green: #a7e1af;
+  --emerald-green: #55c9a4;
+  --dark-gray: #515357;
+  --blue-gray: #cfe3e1;
+  --pink-gray: #eaeaea;
+  --heart-pink: #f52043;
+  --menu-icon:  rgb(255,167,167); 
+}
+
+*{
+	cursor: default;
+}
+
+/* focus 검은색 라운드 처리 해제하기 */
+input:focus,
+button:focus {
+  outline: none;
+}
+
+#main-container {
+  margin: 50px auto;
+  width: 1000px;
+  box-sizing: content-box;
+}
+
+/* 타이틀 */
+#title-container {
+  box-sizing: content-box;
+  padding-left: 10px;
+  text-align: left;
+  vertical-align: bottom;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  
+  border-bottom: 4px solid #eee;
+}
+
+#hotel-icon {
+  width: 40px;
+  height: 40px;
+  vertical-align: bottom;
+  text-align: left;
+  
+  color: var(--menu-icon);
+  margin-right: 4px;
+}
+
+#title-name {
+  font-size: 30px;
+  font-weight: 700;
+  text-align: left;
+}
+
+/* 버튼 */
+#button-container {
+	position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  box-sizing: content-box;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+#left_btns,
+#right_btns {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+
+#left_btns{
+	justify-content: flex-start;
+}
+
+#right_btns{
+  justify-content: flex-end;
+}
+
+#button-container > div:nth-child(2) {
+  flex-basis: 60%;
+}
+
+.btn_ul > li > button {
+  margin: auto 8px;
+}
+
+#right_btns_container{
+	flex-basis: 20%;
+	display: flex;
+	justify-content: flex-end;
+	text-align: right;
+}
+
+
+
+/* 
+
+.btn {
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  border-color: transparent;
+  text-align: center;
+  font-weight: bolder;
+  cursor: pointer;
+  
+  height: 30px;
+}
+
+
+#insert-hotel {
+  background-color: var(--mid-green);
+  color: #fff;
+}
+
+
+#left_btns > li:nth-child(2) > button {
+  background-color: var(--mid-green);
+  color: #fff;
+}
+
+#right_btns .btn {
+  
+} 
+
+*/
+
+button.btn{
+	background-color: transparent;
+	border: var(--mid-green) 1px solid;
+	padding: 5px;
+	
+	border-radius: 5px;
+	text-align: center;
+	font-weight: bold;
+	color: var(--dark-gray);
+	cursor: pointer;
+	height: 30px;
+}
+
+
+#left_btns button.btn:hover,
+#right_btns button.btn:hover{
+	background-color: var(--mid-green);
+  	color: #fff;
+}
+
+
+div#price_order_direction_container{
+	display: none;
+	position: absolute;
+	
+	z-index:1;
+}
+
+#price_order_direction_container{
+	background-color: #fff;
+
+	border: var(--blue-gray) 1px solid;
+	/* border-top-color: transparent; */
+	border-radius: 3px;
+/* 	border-bottom-left-radius:3px;
+	border-bottom-right-radius: 3px; */
+	/* padding: 0 10px; */
+	margin-left: 8px;
+}
+
+#price_order_direction_wrapper{
+	
+	position: relative;
+	flex-direction: column;
+	justify-content: space-around;
+	
+}
+
+ul#price_order_direction_wrapper li{
+	position: relative;
+	text-align:center;
+	
+	padding: 10px 12px;
+	font-size: 0.2em;
+}
+
+ul#price_order_direction_wrapper li:hover{
+	background-color: var(--blue-gray);
+	font-weight: bold;
+	cursor:pointer;
+	
+}
+
+
+/* 상세검색 modal */
+#modal-close-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+/* modal내용부 */
+#modal-content-container{
+  position: flex;
+  margin: 10px auto;
+}
+
+.search-content{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.search-content > div{
+  padding: 30px;
+  position: relative;
+}
+
+/*샘플 모달 시작*/
+/* #detail-search-modal{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transform: sacle(0);
+  
+}
+
+
+#detail-search-modal h2{
+  margin:0;
+}
+
+#detail-search-modal button{
+  display: inline-block;
+  width: 100px;
+  margin-left: calc(100% -100px -10px);
+}
+
+#detail-search-modal .modal_content{
+  width: 300px;
+  margin: 100px auto;
+  padding: 20px 10px;
+  background: #a7e1af;
+  border: 2px solid black;
+}
+
+#detail-search-modal .modal_layer{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0, 0.5);
+  z-index: -1;
+} */
+
+/* 샘플 모달 끝 */
+
+
+/* 호텔리스트 */
+
+#hotel-list-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  position: relative;
+  margin-top: 10px;
+  
+}
+
+
+
+/* 호텔한개 카드 */
+
+.one-hotel-info-container{
+  width: 800px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border: 1px solid var(--dark-gray);
+  margin: 10px auto;
+  padding: 15px;
+}
+
+.one-hotel-info-container:hover{
+	border: 1px solid var(--dark-green);
+
+}
+
+.photo-container{
+  position: relative;
+  flex-basis: 50%;
+  box-sizing: content-box;
+  height: 100%;
+}
+
+.one-hotel-info-container img{
+  width: 300px;
+  height: 300px;
+}
+
+
+.detail-info-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-basis: 100%;
+  padding: 10px 35px;
+  padding-right: 0;
+}
+
+
+.detail-info-container > div:nth-child(1) hr{
+	border: 2px solid #eee;
+}
+
+
+.info-container{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+  text-align: center;
+}
+
+.hotel-name-container{ 
+  flex-basis: 90%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  
+  align-items: baseline;
+}
+
+.hotel-rank-wrapper{
+	padding: 0 10px;
+	color: var(--mid-green);
+	font-weight: bold;
+	font-size: 0.8em;
+}
+
+
+
+.hotel-name-container>  h1{
+	font-size: 1.4em;
+}
+
+
+/* 좋아요버튼 */
+.i-like-btn-container{
+  flex-basis: 10%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.fa-heart{
+  font-size: 30px;
+  cursor: pointer;
+  color: var(--blue-gray);
+}
+
+.fa-heart:hover{
+	cursor: pointer;
+	color: palevioletred;
+}
+
+.unlike, .like{
+	cursor: pointer;
+}
+
+
+.unlike{
+  color: var(--blue-gray);
+}
+
+.like{
+  color: var(--heart-pink);
+}
+
+/*해시태그 리스트*/
+.hashtag_container{
+	padding-top: 10px;
+}
+
+.hashtag_icon{
+	color: var(--mid-green);
+	font-size: 0.8em;
+}
+
+.hashtag_content{
+	margin-left: -3px;
+	padding-right: 8px;
+	font-size: 0.8em;
+}
+
+
+/* 호텔 상세정보 컨테이너 */
+.detail-info-wrapper{
+  display: flex;
+  flex-direction: column;
+ 
+  /*
+  padding-top: 10px;
+  padding-bottom: 10px; 
+  */
+	
+}
+
+.hotel-addr-wrapper{
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.hotel-addr-wrapper{
+	border-top: var(--blue-gray) 5px solid;
+}
+
+.hotel_addr{
+	font-size: 1em;
+}
+
+
+.hotel-info-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* align-items: center; */
+}
+
+
+.hotel-review-container{
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+}
+
+.star-point{
+  padding-right: 15px;
+  color: var(--mid-green);
+}
+
+button.hotel-reserve-btn{
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: 80%;
+}
+
+button.hotel-reserve-btn:hover{
+	background-color: var(--dark-green);
+}
+
+.hotel-per-day-price-container{
+  padding: 10px 0;
+}
+
+.hotel_reserve_button_wrapper{
+	width: 100%;
+	position: relative;
+	text-align: center;
+}
+
+
+button.hotel-reserve-btn{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  border-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: var(--mid-green);
+  color: #fff;
+}
+
+/* pagination */
+
+#pagination-container{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#pagination-ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#pagination-ul li{
+  background-color: transparent;
+  padding: 10px;
+  border: 0.1px solid var(--pink-gray);
+  text-align: center;
+}
+
+#pagination-ul a{
+  text-decoration: none;
+  color: var(--dark-gray);
+  position: relative;
+  cursor:pointer;
+}
+
+#pagination-ul li{
+  border-left-color: transparent;
+}
+
+#pagination-ul li:nth-child(1){
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-left-color: var(--pink-gray);
+}
+
+#pagination-ul li:nth-last-child(1){
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+#pagination-ul li:hover{
+  	font-weight: bold;
+}
+
+/*
+#pagination-ul li:hover,
+#pagination-ul li:active{
+  background-color: var(--blue-gray);
+  font-weight: bold;
+}
+*/
+
+
+/*pagination end--------  */
+
+/* modal start----------- */
+.close-modal-container{
+  display: flex;
+  flex-direction: row; 
+}
+
+.close-modal-container > div:nth-child(1){
+  flex-basis:95%;
+}
+
+.close-modal-container > div:nth-child(2){
+  flex-basis:5%;
+}
+
+#close_btn{
+  color: var(--dark-gray);
+  font-size: 2em;
+}
+
+
+#close_btn:hover{
+  color: var(--dark-green);
+  cursor: pointer;
+}
+
+.modal{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.modal-title-container{
+	position: relative;
+	text-align: center;
+	padding-bottom: 15px;
+}
+
+.modal-body-container{
+  margin: 10px auto;
+  margin-left: 30px;
+  text-align: center;
+}
+
+.modal-body-container td{
+  box-sizing: content-box;
+  position: relative;
+  padding: 5px 0;
+}
+
+.detail-search-option{
+  width: 200px;
+  position: relative;
+  padding: 10px 0;
+  margin-left: 10px;
+}
+
+
+#hotel-name{
+	padding: 8px 0;
+	padding-left: 2px;
+	margin-right: -2px;
+	width: 195px;
+}
+
+.detail-search-option:focus{
+  outline: none;
+}
+
+td > h5{
+  font-weight: bold;
+}
+
+.detail-search-option:nth-child(4){
+  margin-left: 11px;
+  padding-left: 10px 1px;
+  border-style: 1px solid rgb(118,118,118);
+}
+
+
+
+/* 호텔검색 버튼 */
+#detail-hotel-search{
+  width: 100%;
+  position: relative;
+  padding: 10px 0;
+  font-weight: bold;
+  font-size: 15px;
+
+  border-color: transparent;
+  border-radius: 5px;
+  background-color: var(--mid-green);
+  color: #fff;
+  cursor:pointer;
+}
+
+#detail-hotel-search:hover{
+  background-color: var(--dark-green);
+}
+
+/* animated modal=============== */
+html.modal-active,
+body.modal-active{
+  overflow: hidden;
+}
+
+#modal-container{
+  position: fixed;
+  left:0;
+  top:0;
+  display: table;
+  height: 100%;
+  width: 100%;
+  z-index:1;
+  transform: scale(0);
+}
+
+#modal-container .modal-background{
+  display: table-cell;
+  background: rgba(0,0,0,.8);
+  text-align: center;
+  vertical-align: middle;
+}
+
+#modal-container .modal-background .modal{
+  background: #fff;
+  padding: 80px;
+  display: inline-block;
+  border-radius: 3px;
+  position: relative;
+}
+
+
+/* modal-animation */
+#modal-container.detail-search{
+  transform: scale(1);
+}
+
+#modal-container.detail-search .modal-background{
+  background: transparent;
+  animation: fadeIn .5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#modal-conatiner.detial-search .modal-background .modal{
+  opacity: 0;
+  animation: scaleUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#main-container.detail-search{
+  animation: scaleBack 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#modal-container.detail-search.out{
+  animation: quickScaleDown 0s .5s linear forwards;
+}
+
+#modal-container.detail-search.out .modal-background{
+  animation: fadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#modal-container.detail-search.out .modal-background .modal{
+  animation: scaleDown 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#main-container.detail-search.out{
+  animation: scaleForward 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes fadeIn{
+  0% {
+      background: transparent;
+  }
+
+  100% {
+      background: rgba(0,0,0, .8);
+  }
+}
+
+@keyframes scaleUp{
+  0% {
+      transform: scale(.8) translateY(1000px);
+      opacity: 0;
+  }
+
+  100%{
+      transform: scale(1) translateY(0);
+      opacity: 1;
+  }
+}
+
+@keyframes quickScaleDown{
+  0%{
+      transform: scale(1);
+  }
+
+  99.9%{
+      transform: scale(1);
+  }
+
+  100%{
+      transform: scale(0);
+  }
+}
+
+@keyframes fadeOut{
+  0%{
+      background: rgba(0,0,0, .8);
+  }
+
+  100%{
+      background: transparent;
+  }
+}
+
+@keyframes scaleDown{
+  0%{
+      transform: scale(1) translateY(0);
+      opacity: 1;
+  }
+
+  100%{
+      transform: scale(.8) translateY(1000px);
+      opacity:0;
+  }
+}
+
+@keyframes scaleBack{
+  0%{
+      transform: scale(1);
+  }
+
+  100%{
+      transform: scale(.85);
+  }
+}
+
+@keyframes scaleForward{
+  0%{
+      transform: scale(0.85);
+  }
+
+  100%{
+      transform: scale(1); 
+  }
+}
+
+/* animated modal 끝 */
+
+

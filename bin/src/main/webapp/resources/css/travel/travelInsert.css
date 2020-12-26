@@ -1,0 +1,310 @@
+@charset "UTF-8";
+/* 전체 div */
+#all_div {
+    margin: 80px auto 0px auto;
+    width: 1000px;
+}
+
+/* img, 메뉴 이름, 검색 div */
+#menu_div {
+    padding: 0px 10px;
+    display: flex;
+    border-bottom: 4px solid #efefef;
+}
+
+#menu_left_div {
+    flex: 1;
+    text-align: left;
+    padding-bottom: 20px;
+}
+
+#menu_img {
+    width: 40px;
+    height: 40px;
+    text-align: left;
+    vertical-align: bottom;
+    color: rgb(202,240,170);
+}
+
+#menu{
+	font-size: 30px;
+	font-weight: 700;
+	text-align: left;
+}
+
+#menu_right_div{
+	flex: 3;
+	text-align: right;
+	position: relative;
+	top: 10px;
+}
+
+
+/* 작성하기 창 div 시작 */
+
+.astro_span{
+	color : red;
+	font-size: 15px;
+}
+
+#insert_div {
+    text-align: left;
+    margin: 20px auto 40px auto;
+    width: 900px;
+    background: #efefef;
+    border-radius: 10px;
+    padding-bottom: 1px;
+}
+
+#travel_table {
+    text-align: left;
+    margin: 15px 0px 0px 0px;
+    padding: 15px 0px 8px 15px;
+}
+
+#travel_table td{
+	padding: 8px; /* 게시판 페이지 테이블 td간격 통일 되었나 추후에 확인필요 */
+}
+
+
+
+#info_ment_div{
+    height: 70px;
+    padding: 23px 15px 0 23px;
+}
+
+
+
+#insert_ment_div {
+    text-align: left;
+    margin: 20px auto;
+    width: 900px;
+    background: #efefef;
+    border-radius: 10px;
+}
+
+#travel_name{
+	width: 250px;
+	height: 19px;
+	padding-left: 7px;
+}
+
+
+
+#select_region{
+	height: 25px;
+	padding: 3px;
+}
+
+#select_theme{
+	height: 25px;
+	padding: 3px;
+}
+
+/* 해쉬태그 입력창 */
+#input_travel_tag{
+	width: 200px;
+	height: 19px;
+	padding-left: 7px; /* 이 부분 수진이랑 맞추기 */
+}
+
+.hashtag {
+    padding: 5px;
+    border-radius: 10px;
+    background: rgb(119, 175, 130);
+    color: white;
+    font-size: small;
+}
+
+
+#travel_content_div{
+	margin: 20px auto;
+	width: 900px;
+	text-align: center;
+}
+
+#travel_content{
+	resize: none; /* textarea 사이즈조절안되게 */
+	padding: 10px;
+}
+
+
+#text_count_div {
+    text-align: right;
+    margin-bottom: 30px;
+    margin-right: 40px;
+    font-size: smaller;
+}
+
+#text_count{
+	color: rgb(119, 175, 130);
+	font-weight: 600;
+}
+
+/* 취소, 등록 버튼 div */
+#button_div{
+	text-align: center;
+	margin: 20px 0px;
+}
+
+#button_cancel{
+	width: 60px;
+	height: 30px;
+	border: none;
+	background: #EAEAEA;
+	border-radius: 5px;
+}
+
+#button_write{
+	width: 60px;
+	height: 30px;
+	border: none;
+	background: #77af82;
+	color: white;
+	border-radius: 5px;
+}
+
+#span_text{
+	font-size: small;
+	color: gray;
+}
+
+
+/* 사진 첨부하는 영역 */
+#pictureTable{
+	font-size: 18px;
+}
+
+/* 첨부파일 테두리 */
+.pictureArea{
+	/* border: 2px dashed darkgray; */
+	width: 207px;
+	height: 150px;
+	/* margin: 0px; */
+	display: inline-flex;
+	margin: 10px 20px 10px 60px;
+	background: url("../../../resources/images/noImage.png");
+	background-size: 30px;
+	background-repeat-x: no-repeat;
+	background-repeat-y: no-repeat;
+	background-position: center;
+	/* background-color: snow; */
+}
+
+/* 첨부파일 위에서 마우스 커서 바꾸기 */
+#titleImgArea:hover, 
+#contentImgArea1:hover, 
+#contentImgArea2:hover, 
+#contentImgArea3:hover {
+	cursor:pointer;
+}
+
+/* 썸네일과 일반 사진 간격 조절칸 */
+#space1{
+	width: 30px; height: 100px;
+}
+
+#space2{
+	width: 50px; height: 100px;
+}
+
+#space3{
+	width: 30px; height: 100px;
+}
+
+#titleImg{
+	width: 207px;
+	height: 150px;
+}
+
+#contentImg1, #contentImg2, #contentImg3{
+	width: 207px;
+	height: 150px;
+}
+	
+	
+#titleImgTxt{
+	display: inline-flex;
+	margin: 10px 23px 10px 122px;
+	width: 180px;
+}	
+
+#contentImgTxt{
+	display: inline-flex;
+    margin: 10px 10px 10px 90px;
+    width: 180px;
+}
+
+.pictureName{
+	color: black;
+	/* background-color: snow; */
+}
+
+
+/* 해쉬태그 시작 */
+
+#menu_hash{
+	display: inline-flex;
+	margin-left: 32px;
+}
+
+
+#input-hashtag {
+    margin-left: -1px;
+    padding: 5px;
+    width: 200px;
+    position: absolute;
+    height: 12px;
+}
+
+#input-hashtag-btn {
+    font-size: 17px;
+    font-weight: bold;
+    z-index: 1;
+    margin-left: 188px;
+    border: 0;
+    background-color: white;
+    margin-top: 1px;
+}
+  
+#input-hashtag-btn:hover {
+    background-color: snow;
+}
+div.insert-common-container div {
+    margin: 8px;
+}
+
+.insert-hashtag-wrapper, .saved-hashtags-wrapper {
+    margin-left: 15px;
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+ #saved-hashtags {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    text-decoration: underline;
+}
+
+#saved-hashtags li {
+    color: gray;
+    padding: 0px 12px;
+    /* font-style: italic; */
+}
+
+#delete_hash {
+    border: 0;
+    font-size: x-small;
+    vertical-align: super;
+}
+
+#delete_hash:hover{
+	cursor: pointer;
+}
+
+/* input이나 button 클릭 시 outline 제거 */
+#travel_name, #select_theme, #select_region, 
+#input_travel_tag, #travel_content, #button_cancel, #input-hashtag, #input-hashtag-btn, #button_write:focus{
+	outline: none;
+}

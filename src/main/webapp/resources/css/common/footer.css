@@ -1,0 +1,10 @@
+footer{ width:100%; margin: 0 auto; }
+
+#all_footBar{ box-shadow: 0px 0px 6px 0px rgba(41, 42, 42, 0.15);  }
+#footBar{ background-color: rgb(243,243,243); margin : 0px auto; height: 180px; text-align: center; }
+#footLabel{ font-size: 13px; }
+#footSpace1{ height: 60px; }
+#footSpace2{ height: 15px; }
+#footSpace3{ height: 5px; }
+#footSpace4{ height: 10px; }
+#footerSpaces{ height: 150px; }

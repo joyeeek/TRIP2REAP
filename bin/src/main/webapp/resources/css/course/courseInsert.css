@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+/* 전체 div */
+#all_div{
+	margin: 80px auto 0px auto;
+	width: 1000px;
+}
+
+/* img, 메뉴 이름 */
+#menu_div{
+	padding: 0px 10px;
+    border-bottom: 4px solid #efefef;
+	display: flex;
+}
+
+#menu_img{
+	width: 40px;
+	height: 40px;
+	text-align: left;
+	vertical-align: bottom;
+}
+
+#menu{
+	font-size: 30px;
+	font-weight: 700;
+	text-align: left;
+}
+
+/* 코스 등록 안내 멘트, 코스 정보 div */
+#insert_ment_div{
+	text-align: left;
+	margin: 20px auto 40px auto;
+	width: 900px;
+	background: #efefef;
+	border-radius: 10px;
+}
+
+.required_fields{
+	color: red;
+	font-size: 15px;
+}
+
+#course_info_table{
+	text-align: left;
+	margin: 15px 0px;
+	padding: 15px;
+}
+
+#ment_tr{
+	height: 80px;
+	vertical-align: top;
+}
+
+#course_info_table td{
+	padding: 8px;
+}
+
+#input_course_name{
+	width: 250px;
+	height: 19px;
+	padding-left: 7px;
+}
+
+#select_course_theme{
+	height: 25px;
+	padding: 3px;
+}
+
+#select_course_calendar{
+	height: 25px;
+	padding: 3px;
+}
+
+#input_course_tag{
+	width: 200px;
+	height: 19px;
+}
+
+#button_tag_plus{
+	font-size: 28px;
+	color: rgb(119, 175, 130);
+	position: relative;
+	right: 29px;
+	top: 6px;
+}
+
+.tdtdtd{
+	vertical-align: baseline;
+}
+
+.hashtag{
+	padding: 5px;
+	border-radius: 10px;
+	background: rgb(119, 175, 130); /* 메인컬러 */
+	color: white;
+	font-size: small;
+}
+
+/* 코스 설명 div */
+#course_content_div{
+	margin: 0px auto;
+	padding-bottom: 20px;
+	width: 900px;
+	text-align: center;
+}
+
+#course_content{
+	resize: none;
+}
+
+#text_count_div{
+	text-align: right;
+}
+
+#text_count{
+	color: rgb(119, 175, 130);
+	font-weight: 600;
+}
+
+/* 취소, 등록 버튼 div */
+#button_div{
+	text-align: center;
+	margin: 20px 0px;
+}
+
+#button_cancel{
+	width: 60px;
+	height: 30px;
+	border: none;
+	background: #EAEAEA;
+	border-radius: 5px;
+}
+
+#button_write{
+	width: 60px;
+	height: 30px;
+	border: none;
+	background: #77af82;
+	color: white;
+	border-radius: 5px;
+}
+
+/* button hover 시 cursor 변경 */
+#button_tag_plus, #button_cancel, #button_write:hover{
+	cursor: pointer;
+}
+
+/* input이나 button 클릭 시 outline 제거 */
+#input_course_name, #select_course_theme, #select_course_calendar, 
+#input_course_tag, #course_content, #button_cancel, #button_write:focus{
+	outline: none;
+}

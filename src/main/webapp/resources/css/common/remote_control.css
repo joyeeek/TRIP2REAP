@@ -1,0 +1,119 @@
+:root {
+  --dark-green: #497f55;
+  --mid-green: #77af82;
+  --bright-green: #a7e1af;
+  --emerald-green: #55c9a4;
+  --dark-gray: #515357;
+  --blue-gray: #cfe3e1;
+  --pink-gray: #eaeaea;
+  --heart-pink: #f52043;
+  --menu-icon:  rgb(255,167,167); 
+  --kakao-yellow: #f0cd07;
+}
+
+/* 내가 본 호텔, 내가 본 코스  */
+.total_remote{
+	position: fixed;
+	
+	top:67%;
+	right: 30px;
+	z-index:1;
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	margin:0;
+	padding:0;
+	overflow-y: auto;
+	border: 1px solid var(--blue-gray);
+}
+
+/* 카카오톡 상담 버튼  */
+#remote_kakao_div{
+	position: fixed;
+	
+	top:63%;
+	right: 43px;
+	z-index:1;
+	background : none;
+	
+	display: flex;
+	margin:0;
+	padding:0;
+	overflow-y: auto;
+}
+
+.remote_container{
+	position: relative;
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	
+	align-items: center;
+	
+	
+	background-color: #fff;
+	box-shadow: 0 4px 10px 0 #bec2c9;
+	transition : box-shadow .3s ease;
+	padding:0;
+	margin:0;
+}
+
+.remote_banner_container{
+	width: 95px;
+	height : 23px;
+	text-align: center;
+	vertical-align : bottom;
+	line-height : 23px;
+	background-color: var(--mid-green);
+	color: #fff;
+	font-size: 11px;
+	font-weight: bolder;
+}
+
+.remote_ul{
+	list-style-type: none;
+}
+
+.remote_li a{
+	display:flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	cursor: pointer;
+}
+
+.remoteImg { 
+    width: 95px; 
+    height: 60px;
+    cursor: pointer;
+}
+
+.remoteName {
+	height : 20px;
+	vertical-align : bottom;
+	line-height : 18px;
+	font-size: 6px;
+	font-weight: bold;
+	
+	cursor:pointer;
+}
+
+.remote_icon{
+	color: var(--dark-gray);
+}
+
+#remoteHotelIcon {
+	font-size: 10px;
+}
+
+#remoteCourseIcon{
+	font-size: 11px;
+}
+
+#kakao-talk-channel-button a img {
+	width: 70px;
+	height: 30px;
+	vertical-align: text-top;
+}

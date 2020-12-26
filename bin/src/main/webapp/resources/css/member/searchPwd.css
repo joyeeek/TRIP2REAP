@@ -1,0 +1,95 @@
+
+     ul { margin: 0px; padding: 0px; }
+     div { margin: 0px; padding: 0px; }
+     
+     /* 공통속성  */
+     #board_list{ margin : 40px auto 0px auto; width: 1300px;} 
+     
+     
+     /* 인증방법 설명란 */
+     #space_1{ height: 50px; }
+     #space_2{ height: 100px; width:1300px; }
+     #info1 { display: inline-block; width:500px; }
+     #info2 { display: inline-block; height: 50px; font-size: 30px; font-weight:bold; text-align: center; }
+     #info3 { display: inline-block; width:200px; }
+     #info4 { display: inline-block; width:425px; }
+     #info5 { display: inline-block; font-weight:bold; color:darkgray; text-align: right; }
+     
+     
+     /* 테이블 상단바  */
+     #space_3{ height: 30px; }
+     #space_4{ display:inline-block; width:250px; }
+     #loginBox { display:inline-block; height:400px; width:770px; border: 1px solid rgb(213, 213, 213); }
+     #tab{ list-style: none; }
+     #id {
+           display: inline-block;
+           background: rgb(246, 246, 246);
+           font-size: 15px;
+           width: 450px;
+           height: 50px;
+           text-align: center;
+           display: table-cell;
+           vertical-align: middle;
+           border-right: 1px solid rgb(213, 213, 213);
+           border-bottom: 1px solid rgb(213, 213, 213);
+           cursor: pointer;
+         }
+     
+     #pwd { 
+          display: inline-block;
+          background: white;
+          font-size: 15px;
+          width: 450px;
+          height: 50px;
+          text-align: center;
+          display: table-cell;
+          vertical-align: middle;
+          border-bottom: 1px solid white;
+          cursor: pointer;           
+         }
+     
+     
+     /* 아이디 찾기  */
+     #searchId { display: none; line-height: 80px; }
+     #searchId_2 { display: inline-block; width: 220px; }
+     #checkPhone_1 { color: darkgray; width: 30px; cursor: pointer; }
+     #checkPhone_2 { margin-right: 30px; }
+     #checkEmail_1 { color: darkgray; width: 30px; cursor: pointer; }
+     #nameBox, #phoneBox, #idBtn:focus{ outline: none; }  
+     #idBox, #emailBox, #numberBox, #idBtn2:focus{ outline: none; }        
+     
+     
+     /* 비밀번호 찾기  */
+     #searchPwd { line-height: 80px; }
+     #space_5 { display: inline-block; width: 300px; }
+     #checkEmail_3 { color: darkgray; width: 30px; cursor: pointer; }
+     #idBox2, #emailBox2, #numberBox2, #idBtn3:focus{ outline: none; }  
+     
+     
+     /* 아이디 찾기 : 내용 */
+     #phone { display: none; }
+     #email { display: none; }
+     #space_6 { height: 15px; }
+     #space_7 { display: inline-block; width: 185px; }
+     #nameBox { width: 350px; height: 45px; border: 2px solid rgb(213,213,213); padding-left: 30px; }
+     #space_8 { display: inline-block; width: 100px; }
+     #phoneBox { width: 350px; height: 45px; border: 2px solid rgb(213,213,213); border-top: none; padding-left: 30px; }
+     #space_9 { height: 30px; }
+     #idBtn { background-color: rgb(119,175,130); color: white; border: none;
+              width: 385px; height: 40px; font-weight: bold; cursor: pointer; }
+     #idBox { width: 350px; height: 45px; border: 2px solid rgb(213,213,213); padding-left: 30px; }
+     #emailBox { width: 350px; height: 45px; border: 2px solid rgb(213,213,213); border-top: none; padding-left: 30px; }
+     #numberBox { width: 350px; height: 45px; border: 2px solid rgb(213,213,213); border-top: none; padding-left: 30px; }
+     #idBtn2 { background-color: rgb(119,175,130); color: white; border: none;
+              width: 385px; height: 40px; font-weight: bold; cursor: pointer; }
+     
+     
+     /* 비밀번호 찾기 : 내용  */
+     #idBox2 { width: 350px; height: 45px; border: 2px solid rgb(213,213,213); padding-left: 30px; }
+     #emailBox2 { width: 350px; height: 45px; border: 2px solid rgb(213,213,213); border-top: none; padding-left: 30px; }
+     #numberBox2 { width: 350px; height: 45px; border: 2px solid rgb(213,213,213); border-top: none; padding-left: 30px; }
+     #idBtn3 { background-color: rgb(119,175,130); color: white; border: none;
+              width: 385px; height: 40px; font-weight: bold; cursor: pointer; }
+     
+     
+         

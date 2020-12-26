@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+/* 전체 div */
+#all_div{ margin : 80px auto 0px auto; width: 1000px; }
+
+#coSpace1{ height: 5px; }
+#coMain{ height : 300px; background : rgb(250,236,197); }
+#coSpace2{ height: 40px; }
+#coSpace3{ display: inline-block; width: 380px; }
+#coLabel1{ font-family: 'East Sea Dokdo', cursive; font-size: 45px; font-weight: bold; color : rgb(63,22,0); margin-right: 10px; }
+#coLabel2{ font-family: 'East Sea Dokdo', cursive; font-size: 75px; vertical-align: bottom; line-height: 60px; font-weight: bold;
+           color : rgb(238,97,91); margin-right: 40px; }
+#makeCourse{ display:inline-block; background: rgb(63,22,0); height: 35px; width: 188px; 
+             text-align: center; vertical-align: super; line-height: 27px; border-radius: 20px;
+            border: none; cursor : pointer; }
+#makeLabel1{ color: white; vertical-align: bottom; line-height: 21px; font-size: 14px; margin-right: 3px; cursor : pointer; }
+#makeLabel2{ color: white; vertical-align: bottom; line-height: 21px; font-size: 13px; font-weight: bold; cursor : pointer; }
+#coSpace4{ height : 35px; }
+#coSpace5{ display: inline-block; width: 10px; }
+
+/* 아이콘  */
+#coSelect0{ display: inline-block; width: 110px; height: 110px; text-align : center; cursor : pointer;
+		   background: white; border-radius: 5px; border: 1px solid rgb(234,234,234); }
+#coSelect1{ display: inline-block; width: 110px; height: 110px; text-align : center; cursor : pointer;
+            background: white; border-radius: 5px; border: 1px solid rgb(234,234,234); }
+#coSelect2{ display: inline-block; width: 110px; height: 110px; text-align : center; cursor : pointer;
+		   background: white; border-radius: 5px; border: 1px solid rgb(234,234,234); }
+#coSelect3{ display: inline-block; width: 110px; height: 110px; text-align : center; cursor : pointer;
+		   background: white; border-radius: 5px; border: 1px solid rgb(234,234,234); }
+#coSelect4{ display: inline-block; width: 110px; height: 110px; text-align : center; cursor : pointer;
+		   background: white; border-radius: 5px; border: 1px solid rgb(234,234,234); }
+#coSelect5{ display: inline-block; width: 110px; height: 110px; text-align : center; cursor : pointer;
+		   background: white; border-radius: 5px; border: 1px solid rgb(234,234,234); }
+.commonLabel { font-weight: bold; cursor : pointer; }		   
+#coSelect0,#coSelect2,#coSelect3,#coSelect4,#coSelect5{ vertical-align: top; }
+#coIcon0 { font-size: 50px; color: rgb(238,97,91); }
+#coIcon1{ width: 72px; }
+#coIcon2 { font-size: 50px; color: rgb(206,242,121); }
+#coIcon3 { font-size: 45px; color: pink; }
+#coIcon4 { font-size: 50px; color: orange; }
+#coIcon5 { font-size: 50px; color: rgb(178,235,244); }
+#coSpace6{ height : 20px; }
+#coSpace7{ height : 10px; }
+#coSpace8{ height : 15px; }
+
+
+/* 메뉴바  */
+#coMenu{ height: 50px; background: rgb(238,97,91); box-shadow: 3px 3px 3px 3px rgba(128, 46, 34, 0.4); }
+#coSpace8{ height: 14px; }
+
+
+/* 리스트 */
+#listDiv{ display: inline-block; width: 280px; height: 400px; border: 1px solid lightgray; 
+          margin-left: 40px; margin-bottom: 70px; position: relative; overflow: hidden; }
+#listDiv2 { text-align: center; }
+#listImg{ width: 280px; height : 150px; filter: brightness(80%); }
+#listTitle{ position: absolute; color: white; top: 16%; left: 50%; font-size: 18px; font-weight: bold; 
+            transform: translate( -50%, 0% ); width: 200px; }
+#listId{ position: absolute;  top : 30%; right: 3%; color: white; font-weight: bold; font-size: 14px; }
+#listDistance{ position: absolute; top : 30%; left : 3%; color: white; font-weight: bold; font-size: 13px; }
+#day1{ display: inline-block; width: 20px; height: 20px; border-radius: 15px; background: rgb(242,203,97); 
+       text-align: center; margin-top: 10px; margin-left: 10px; margin-bottom: 5px; }
+#dayLabel{ color: white; font-size: 15px; font-weight: bold; vertical-align: top; line-height: 19px; }
+#dayLabel2{ font-size: 13px; font-weight: bold; margin-left: 4px; margin-top: 10px; }
+#nameLabel{ display: inline-block; width: 17px; height: 17px; border-radius: 15px; background: lightgray; 
+            text-align: center; margin-top: 10px; margin-left: 33px; }
+#nameLabel2{ display : inline-block; font-size: 13px; font-weight: bold; margin-left: 4px; margin-top: 10px; }
+#dayLabel3{ color: white; font-size: 12px; font-weight: bold; vertical-align: top; line-height: 16px; }
+#nameDiv{ position: relative; height: 142px; }
+#detailBtn{ background: black; width : 285px; height: 40px; opacity: 0.4; position: absolute; top: 120%; 
+            text-align: center; cursor: pointer; }
+#detailBtn:hover{ opacity: 0.5; }
+#detailLabel{ color: white; vertical-align: middle; font-size: 13px; line-height: 40px; opacity: 1; }
+
+
+/* 페이징 */
+.paging{ text-align: center; }
+#pagination{ clear: both; text-align: center; }	
+.paging a{ display: inline-block; border-radius: 5px; font-size: 12px; width: 28px; height: 28px; 
+           vertical-align: middle; line-height: 27px; }	
+a{ text-decoration: none; }
+.paging a.bt{ border: 1px solid darkslategrey; margin-left: 2px; margin-right: 2px; }
+.paging a.num{ border: 1px solid darkslategrey; font-weight: 600; margin-left: 2px; margin-right: 2px; }
+.paging a.num.on{ background: lightslategray; color: white; border: 1px solid lightslategray; margin-left: 2px; margin-right: 2px; }

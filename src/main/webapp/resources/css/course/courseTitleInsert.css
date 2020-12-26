@@ -1,0 +1,122 @@
+/* 전체 div */
+#all_div{ margin: 80px auto 0px auto; width: 1000px; }
+
+/* 메뉴  */
+#menu_div { padding: 0px 10px; display: flex; border-bottom: 4px solid #efefef; }
+#coMenu { flex: 1; text-align: left; padding-bottom: 20px; }
+#coMenuLabel{ font-size: 30px; font-weight: 700; text-align: left; }
+
+/* 표지  */
+#tiSpace1{ height: 30px; }
+#tiSpace2{ display : inline-block; width: 50px; }
+#titleImgDiv{ display : inline-block; cursor: pointer; }
+#titleImg{ width: 880px; height : 300px; border: 4px solid #efefef; }
+#titleIcon{ color: white; font-size: 100px; position: absolute; top: 53%; left: 45.5%; }
+#titleLabel{ color: white; font-size: 25px; position: absolute; top: 68%; left: 43%; font-weight: 500; }
+#file{ display:none; }
+
+/* 여행정보  */
+#cotitle{ display: inline-block; }
+#starLabel{ color: rgb(242,203,97); }
+#coTitleLabel{ margin-right: 10px; font-size: 20px; font-weight: bold; }
+#coTitleLabel2{ margin-right: 10px; }
+#titleText{ width : 250px; height: 25px; text-align: center; border: none; border-bottom: 2px solid lightgray; 
+            font-size: 17px; font-style: italic;}
+#memoText{ width : 580px; height: 25px; text-align: left; border: none; border-bottom: 1px solid lightgray; 
+           font-size: 13px; }
+#tiSpace3{ height: 10px; }
+#coTheme, #coSchedule{ width : 150px; height: 30px; }
+#mainCourse0{ display : inline-block; border: 2px dashed rgb(242,203,97); 
+              height: 1000px; width: 888px; overflow: auto; }
+#tiSpace4{ display : inline-block; width: 30px; }
+#tiSpace5{ display : inline-block; width: 20px; }
+
+/* 카카오 지도 */
+#mapDiv1{ width: 815px; height: 300px; display: inline-block; }
+#map{ position:relative; overflow:hidden; width : 100%; height: 300px; border: 4px solid lightgray; }
+.map_wrap, .map_wrap * { margin:0; padding:0; font-family:'Malgun Gothic',dotum,'돋움',sans-serif; font-size:12px; }
+.map_wrap a, .map_wrap a:hover, .map_wrap a:active{ color:#000; text-decoration: none; }
+.map_wrap { position:relative; width:100%; height:304px; }
+#menu_wrap { position:absolute; top:330px; left:0; bottom:0; width:363px; height:400px; margin:10px 0 30px 10px; padding:5px;
+             overflow-y:auto; background:rgba(255, 255, 255, 0.7); z-index: 1; font-size:12px; border-radius: 10px; 
+             border: 4px solid #efefef; }
+.bg_white {background:#fff;}
+#menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
+#menu_wrap .option{text-align: center;}
+#menu_wrap .option p {margin:10px 0;}  
+#menu_wrap .option button {margin-left:5px;}
+#placesList li {list-style: none;}
+#placesList .item {position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
+#placesList .item span {display: block;margin-top:4px;}
+#placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+#placesList .item .info{padding:10px 0 10px 55px;}
+#placesList .info .gray {color:#8a8a8a;}
+#placesList .info .jibun {padding-left:26px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
+#placesList .info .tel {color:#009900;}
+#placesList .item .markerbg {float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
+#placesList .item .marker_1 {background-position: 0 -10px;}
+#placesList .item .marker_2 {background-position: 0 -56px;}
+#placesList .item .marker_3 {background-position: 0 -102px}
+#placesList .item .marker_4 {background-position: 0 -148px;}
+#placesList .item .marker_5 {background-position: 0 -194px;}
+#placesList .item .marker_6 {background-position: 0 -240px;}
+#placesList .item .marker_7 {background-position: 0 -286px;}
+#placesList .item .marker_8 {background-position: 0 -332px;}
+#placesList .item .marker_9 {background-position: 0 -378px;}
+#placesList .item .marker_10 {background-position: 0 -423px;}
+#placesList .item .marker_11 {background-position: 0 -470px;}
+#placesList .item .marker_12 {background-position: 0 -516px;}
+#placesList .item .marker_13 {background-position: 0 -562px;}
+#placesList .item .marker_14 {background-position: 0 -608px;}
+#placesList .item .marker_15 {background-position: 0 -654px;}
+#pagination {margin:10px auto;text-align: center;}
+#pagination a {display:inline-block;margin-right:10px;}
+#pagination .on {font-weight: bold; cursor: default;color:#777;}
+#courseOkBtn{ background: white; border: 1px solid lightgray; width: 100px; height : 25px; color : rgb(76,76,76); 
+              vertical-align: middle; border-radius: 5px; line-height: 5px; font-weight: bold; margin-top: 5px; }
+#courseOkBtn:hover{ background: rgb(234,234,234); }
+.courseMarker {float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
+.courseDistance { display: inline-block; width: 50px; margin-left: 10px; border: none; 
+                  vertical-align: top; line-height: 34px; font-size: 12px; }
+.label { border: none; border-radius: 20px; width: 20px; height: 20px; background: rgb(238,185,56); color: white; 
+         text-align: center; }
+.center { font-size: 13px; font-weight: bold; vertical-align: middle; line-height: 15px; }
+
+/* 코스 1일차  */
+#tiSpace6{ height: 30px; }
+#tiSpace7{ display : inline-block; width: 605px; }
+#day1{ display: inline-block; width: 20px; height: 20px; border-radius: 15px; background: rgb(242,203,97); 
+       text-align: center; }
+#dayLabel{ color: white; font-size: 15px; font-weight: bold; vertical-align: top; line-height: 19px; }
+#dayLabel2{ font-size: 14px; font-weight: bold; margin-left: 5px; margin-right: 10px; }
+#courseAll{ display:inline-block; width: 343px; }
+#course0{ display:inline-block; width: 340px; height: 40px; border: 1px dashed rgb(242,203,97); 
+          text-align: center; }
+#course1{ display:inline-block; width: 340px; height: 40px; border: 1px dashed rgb(242,203,97); 
+          text-align: center; }
+          
+/* 코스 상세 선택  */
+#tiSpace8{ display : inline-block; width: 480px; }
+#tiSpace9{ height: 15px; }
+#noCourse{ display : inline-block; font-size: 12px; vertical-align: middle; line-height: 39px; border: none; width: 300px; text-align: center; }
+#yesCourse{ display : none; font-size: 12px; vertical-align: middle; line-height: 39px; border: none; width: 300px; 
+            text-align: center; }
+.yesCourses{ display : inline-block; font-size: 12px; vertical-align: middle; line-height: 39px; border: none; width: 300px; text-align: center; }
+#courseSpace1{ height: 5px; }
+#courseSpace2{ display: inline-block; width: 170px; height: 30px; border-right: 2px dashed rgb(242,203,97); }
+
+
+/* 버튼  */
+#courseSpace3 { height : 50px; }
+#courseSpace4 { display : inline-block; width : 305px; }
+#courseBtn1 { background: lightgray; color:white; width: 200px; height : 50px; 
+                  border: none; font-size: 15px; font-weight: bold; cursor: pointer; }
+#courseBtn1:hover { background-color: rgb(200,200,200); }
+#courseSpace5 { display: inline-block; width: 10px; }
+#courseBtn2 { background: rgb(119,175,130); color:white; width: 200px; height : 50px; 
+             border: none; font-size: 15px; font-weight: bold; cursor: pointer; }
+#courseBtn2:hover { background-color: rgb(130,185,140); }             
+#courseBtn1, #courseBtn2:focus{ outline: none; }
+
+/* 테두리  */
+#titleText,#coTheme,#coSchedule,#addLocation,#courseOkBtn,#memoText,#noCourse,#yesCourse,.yesCourses:focus { outline: none; }

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="hotelMapper">
+	<select id="getHotelListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM HOTEL_VIEW
+	</select>
+	
+	<select id="selectHotelList" resultMap="hotelResultSet">
+		SELECT *
+		FROM HOTEL_VIEW
+		ORDER BY BO_NO DESC
+	</select>
+	<resultMap type="Hotel" id="hotelResultSet">
+		<id property="boNo" column="BO_NO"/>
+		<result property="caCode" column="CA_CODE"/>
+		<result property="boTitle" column="BO_TITLE"/>
+		<result property="boContent" column="BO_CONTENT"/>
+		<result property="memberId" column="MEMBER_ID"/>
+		<result property="boCount" column="BO_COUNT"/>
+		<result property="boTag" column="BO_TAG"/>
+		<result property="boDeleteYN" column="BO_DELETE_YN"/>
+		<result property="regDate" column="REGDATE"/>
+		<result property="hotelAddr" column="HOTEL_ADDRESS"/>
+		<result property="hotelLocalCode" column="HOTEL_LOCAL_CODE"/>
+		<result property="hotelSite" column="HOTEL_SITE"/>
+		<result property="hotelTel" column="HOTEL_TEL"/>
+		<result property="hotelReviewScore" column="HOTEL_REVIEW_SCORE"/>
+		<result property="hotelRank" column="HOTEL_RANK"/>
+		<result property="hotelOpenTime" column="HOTEL_OPEN_TIME"/>
+		<result property="hotelCloseTime" column="HOTEL_CLOSE_TIME"/>
+		
+		<result property="hotelOptions" column="HOTEL_OPTION"/>
+	
+		<result property="hotelCheckInTime" column="CHECK_IN"/>
+		<result property="hotelCheckOutTime" column="CHECK_OUT"/>
+	</resultMap>
+	
+	
+	<!-- 2020.11.25 - hotel DetailView -->
+	<select id="selectOneHotel" resultMap="hotelResultSet">
+		SELECT *
+		FROM HOTEL_VIEW
+		WHERE BO_NO=#{hId}
+	
+	</select>
+	
+	<update id="addReadCount">
+		UPDATE HOTEL_VIEW
+		SET BO_COUNT=BO_COUNT+1
+		WHERE BO_NO=#{hId}
+	</update>
+	
+	
+	<!--2020.11.25- hotel DetailView - hId에 등록된 방개수 구하기  -->
+	<select id="getRoomListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM ROOM
+		WHERE BO_NO=#{hId}
+	</select>
+	
+	<!-- 2020.11.25 - hId에 등록된 호텔 방 종류리스트 구하기 -->
+	<select id="getRoomTypeList" resultType="string">
+	SELECT DISTINCT ROOM_TYPE
+	FROM ROOM
+	WHERE BO_NO=#{hId}
+	ORDER BY ROOM_TYPE
+	</select>
+	
+	<!-- 2020.11.25 - hId에 등록된 호텔중 type에해당하는 방리스트를 구하기 -->
+	<select id="searchRoomTypeList" resultMap="roomResultSet">
+	SELECT *
+	FROM ROOM
+	WHERE BO_NO=#{hId} AND ROOM_TYPE=#{type}		
+	</select>
+	
+	<resultMap type="Room" id="roomResultSet">
+		<id property="roomNo" column="ROOM_NO"/>
+		<result property="boNo" column="BO_NO"/>
+		<result property="roomType" column="ROOM_TYPE"/>
+		<result property="roomName" column="ROOM_NAME"/>
+		<result property="pricePerDay" column="PRICE_PER_DAY"/>
+	</resultMap>
+	
+	
+</mapper>

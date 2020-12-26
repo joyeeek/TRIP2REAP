@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis/org//DTD Mapper 3.0/EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="reviewMapper">
+	
+  	<select id="getListCount" resultType="_int">
+		select count(*)
+    	from board
+  		where BO_DELETE_YN='N' 
+  	</select>
+  	
+  	<select id="selectList" resultMap="reviewResultSet">
+  		 select * 
+  		 from board 
+   		 where BO_DELETE_YN='N' AND CA_CODE=3
+   		 order by BO_NO desc
+  	</select>
+
+  <resultMap type="Review" id="reviewResultSet">
+      <id column="BO_NO" property="boNo"/>
+      <result column="CA_CODE" property="caCode"/>
+      <result column="BO_TITLE" property="boTitle"/>
+      <result column="BO_CONTENT" property="boContent"/>
+      <result column="MEMBER_ID" property="memberId"/>
+      <result column="BO_COUNT" property="boCount"/>
+      <result column="BO_TAG" property="boTag"/>
+      <result column="BO_DELETE_YN" property="boDeleteYN"/>
+      <result column="REGDATE" property="regDate"/>
+   </resultMap>
+   
+  	 <update id="addReadCount">
+   		update board
+   		set BO_COUNT= BO_COUNT + 1
+   		where BO_NO= #{boNo}
+   </update>
+ 
+
+   <select id="selectReview" resultMap="reviewResultSet">
+   	   select *
+       from board
+       where BO_NO=#{boNo} and BO_DELETE_YN='N'
+   </select> 
+   
+  <insert id="insertReview">
+   		<!-- insert into BOARD
+   		values (SEQ_BO_NO.NEXTVAL,3,#{boTitle},#{boContent},#{memberId},DEFALUT,#{boTag},'N',SYSDATE) -->
+   		insert into BOARD values(SEQ_BO_NO.NEXTVAL,3,'테스트','여행가고싶다','ko1850',0,'#여행#여행','N',DEFAULT)
+   </insert>
+   
+
+   
+  
+
+</mapper>
+
+
+
+
+
+
+
+
+
+

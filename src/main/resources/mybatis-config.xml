@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+    <settings>
+        <setting name="jdbcTypeForNull" value="NULL"/>
+    </settings>
+    
+    <typeAliases>
+        <typeAlias type="trip.two.reap.member.model.vo.Member" alias="Member"/>
+        <typeAlias type="trip.two.reap.review.model.vo.Review" alias="Review"/>
+        <typeAlias type="trip.two.reap.travel.model.vo.Travel" alias="Travel"/>
+        <typeAlias type="trip.two.reap.review.model.vo.Reply" alias="Reply"/>
+        <typeAlias type="trip.two.reap.course.model.vo.Course" alias="Course"/>
+        <typeAlias type="trip.two.reap.member.model.vo.MyTravel" alias="MyTravel"/>
+        <typeAlias type="trip.two.reap.member.model.vo.MyHotel" alias="MyHotel"/>
+
+        <typeAlias type="trip.two.reap.hotel.model.vo.Hotel" alias="Hotel"/>
+        <typeAlias type="trip.two.reap.hotel.model.vo.Room" alias="Room"/>
+        <typeAlias type="trip.two.reap.hotel.model.vo.Reservation" alias="Reservation"/>
+        <typeAlias type="trip.two.reap.hotel.model.vo.Reply" alias="HotelReply"/>
+        <typeAlias type="trip.two.reap.common.Attachment" alias="Attachment"/>
+    </typeAliases>
+    
+    <mappers>
+        <mapper resource="mapper/member-mapper.xml"/>
+        <mapper resource="mapper/review-mapper.xml"/>
+        <mapper resource="mapper/travel-mapper.xml"/>
+        <mapper resource="mapper/hotel-mapper.xml"/>
+        <mapper resource="mapper/course-mapper.xml"/>
+    </mappers>
+</configuration>
+

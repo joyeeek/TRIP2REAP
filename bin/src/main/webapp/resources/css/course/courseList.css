@@ -1,0 +1,246 @@
+@charset "UTF-8";
+
+/* 전체 div */
+#all_div{
+	margin: 80px auto 0px auto;
+	width: 1000px;
+}
+
+/* img, 메뉴 이름, 검색 div */
+#menu_div{
+	padding: 0px 10px;
+    border-bottom: 4px solid #efefef;
+	display: flex;
+}
+
+#menu_left_div{
+	margin-bottom: 20px;
+	text-align: left;
+	flex: 1;
+}
+
+#menu_img{
+	width: 40px;
+	height: 40px;
+	text-align: left;
+	vertical-align: bottom;
+}
+
+#menu{
+	font-size: 30px;
+	font-weight: 700;
+	text-align: left;
+}
+
+#menu_right_div{
+	flex: 3;
+	text-align: right;
+	position: relative;
+	top: 10px;
+}
+
+#input_search{
+	width: 200px;
+	height: 26px;
+}
+
+#button_search{
+	width: 60px;
+	height: 30px;
+	border: none;
+	background: #77af82;
+	color: white;
+	border-radius: 5px;
+}
+
+/* 카테고리 테이블 div */
+#cate_table_div{
+	width: 900px;
+	margin: 0px auto;
+	padding: 60px 0px 30px 0px;
+}
+
+.cate_name{
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.fa-leaf{
+	height:13px;
+	width:13px;
+	color:#a7e1af;
+}
+
+#local_table{
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	margin: 16px 0px 30px 0px;
+	width: 900px;
+}
+
+#local_table td{
+	border: 1px solid black;
+	width: 100px;
+	height: 30px;
+}
+
+#local_table td:hover {
+    border: 1px solid black;
+    width: 100px;
+    height: 30px;
+    background-color: #77af82;
+    color: white;
+    cursor: pointer;
+}
+
+#theme_table{
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	margin: 16px 0px 30px 0px;
+	width: 900px;
+}
+
+#theme_table td{
+	border: 1px solid black;
+	width: 129px;
+	height: 30px;
+}
+
+#theme_table td:hover{
+	border: 1px solid black;
+	width: 129px;
+	height: 30px;
+	background-color: #77af82;
+    color: white;
+    cursor: pointer;
+}
+
+#calendar_table{
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	margin: 16px 0px 30px 0px;
+	width: 900px;
+}
+
+#calendar_table td{
+	border: 1px solid black;
+	width: 129px;
+	height: 30px;
+}
+
+#calendar_table td:hover{
+	border: 1px solid black;
+	width: 129px;
+	height: 30px;
+	background-color: #77af82;
+    color: white;
+    cursor: pointer;
+}
+
+/* 목록 전체 div */
+#list_all_div{
+	margin: 20px auto 0px auto;
+	padding: 10px 30px 1px 30px;
+	width: 840px;
+	background: #efefef;
+}
+
+#list_count_div {
+    font-weight: 600;
+    margin: 10px 0px 30px 0px;
+}
+
+#list_count{
+	color: #497f55;
+	margin: 0px 10px;
+}
+
+/* 각 코스마다 div */
+#list_course_div{
+	padding: 10px;
+	/* ↓ 수진언니는 <br><br> 사용했음 */
+	margin-bottom: 35px;
+	width: 820px;
+	background: white;
+	display: flex;
+}
+
+#course_img_div{
+	flex: 1;
+}
+
+#travel_img{
+	width: 250px;
+	height: 170px;
+}
+
+#course_name_writer_div{
+	padding: 30px 20px;
+	flex: 1;
+}
+
+#course_name{
+	font-size: 30px;
+	font-weight: 900;
+	margin-bottom: 20px;
+}
+
+#course_name:hover{
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+#course_cate_tag_div{
+	padding: 20px 20px;
+	flex: 1.5;
+}
+
+#course_cate{
+	margin: 29px 0px 20px 0px;
+}
+
+/* 등록하기 버튼 div */
+#button_write_div{
+	width: 900px;
+	margin: 30px auto;
+	text-align: right;
+}
+
+#button_write{
+	width: 70px;
+	height: 30px;
+	border: none;
+	background: #77af82;
+	color: white;
+	border-radius: 5px;
+}
+
+/* 페이징 */
+#paging_div{
+	margin: 50px 0px;
+	text-align: center;
+}
+
+#paging_div button{
+	width: 25px;
+	height: 25px;
+	border: none;
+}
+
+#current{
+	background: #77af82;
+	color: white;
+}
+
+/* button hover 시 cursor 변경 */
+#button_search, #button_write:hover{
+	cursor: pointer;
+}
+
+/* input이나 button 클릭 시 outline 제거 */
+#input_search, #button_search, #button_write, #before, #current, .num, #after:focus{
+	outline: none;
+}

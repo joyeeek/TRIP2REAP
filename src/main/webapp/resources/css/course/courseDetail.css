@@ -1,0 +1,65 @@
+/* 전체 div */
+#all_div{ margin: 80px auto 0px auto; width: 1000px; }
+
+
+/* 메뉴  */
+#menu_div { padding: 0px 10px; display: flex; border-bottom: 4px solid #efefef; }
+#coMenu { flex: 1; text-align: left; padding-bottom: 20px; }
+#coMenuLabel{ font-size: 30px; font-weight: 700; text-align: left; }
+#goCourseList{ width: 70px; height: 27px; border: none; margin-top: 21px; margin-right: 50px; font-size: 13px; }
+#goCourseList:hover{ background: rgb(229, 229, 229); }
+
+
+/* 표지  */
+#tiSpace1{ height: 30px; }
+#tiSpace2{ display : inline-block; width: 50px; }
+#titleImgDiv{ display : inline-block; cursor: pointer; }
+#titleImg{ width: 880px; height : 300px; border: 4px solid #efefef; }
+#titleLabel{ color: white; font-size: 25px; position: absolute; top: 58.5%; left: 45%; font-weight: 600; 
+             font-family: 'Sunflower', sans-serif; }
+
+
+/* 테마정보  */
+#cotitle{ display: inline-block; }
+#starLabel{ color: rgb(242,203,97); }
+#coTitleLabel{ margin-right: 10px; font-size: 20px; font-weight: bold; }
+#titleText{ width : 120px; height: 25px; text-align: center; border: none; border-bottom: 1px solid lightgray; 
+            font-size: 13px; font-style: italic; }
+#memoText{ width : 570px; height: 25px; text-align: left; border: none; border-bottom: 1px solid lightgray; 
+           font-size: 13px; font-style: italic; }            
+
+/* 카카오지도  */
+#mainCourse0{ display : inline-block; border: 2px dashed rgb(242,203,97); 
+              width: 888px; overflow: auto; }
+#tiSpace3{ display : inline-block; width: 30px; }  
+#mapDiv1{ width: 815px; height: 300px; display: inline-block; }
+#map{ position:relative; overflow:hidden; width : 100%; height: 300px; border: 4px solid lightgray; }
+
+
+/* 오버레이  */
+.label { border: none; border-radius: 20px; width: 20px; height: 20px; background: rgb(238,185,56); color: white; 
+         text-align: center; }
+.center { font-size: 13px; font-weight: bold; vertical-align: middle; line-height: 15px; }      
+
+
+/* 코스 1일차  */
+#tiSpace6{ height: 50px; }
+#tiSpace7{ display : inline-block; width: 400px; }
+#day1{ display: inline-block; width: 20px; height: 20px; border-radius: 15px; background: rgb(242,203,97); 
+       text-align: center; }
+#dayLabel{ color: white; font-size: 15px; font-weight: bold; vertical-align: top; line-height: 19px; }
+#dayLabel2{ font-size: 14px; font-weight: bold; margin-left: 5px; margin-right: 10px; }                
+
+
+/* 코스 상세보기  */
+#tiSpace8{ display : inline-block; width: 250px; }
+#courseAll{ display : inline-block; width: 400px; }
+#course0{ width: 400px; height: 40px; border: 1px dashed rgb(242,203,97); text-align: center; }            
+#courseSpace1{ display: inline-block; width: 20px; height: 30px; border-right: 2px dashed rgb(242,203,97); margin-left: 183px; }            
+.courseDistance { display: inline-block; width: 165px; margin-left: 10px; border: none; 
+                  vertical-align: top; line-height: 34px; font-size: 12px; }                        
+.yesCourses{ display : inline-block; font-size: 12px; vertical-align: middle; line-height: 39px; border: none; width: 300px; text-align: center; }
+#courseDetailSpace0{ height: 60px; }
+            
+            
+#titleText, #goCourseList, #memoText, #yesCourse:focus { outline: none; }

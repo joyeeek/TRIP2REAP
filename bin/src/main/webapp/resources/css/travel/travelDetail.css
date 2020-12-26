@@ -1,0 +1,200 @@
+@charset "UTF-8";
+#all_div {
+    margin: 80px auto 0px auto;
+    width: 1000px;
+}
+
+
+#menu_div {
+    padding: 0px 10px;
+    display: flex;
+
+}
+
+#menu_left_div {
+    flex: 1;
+    text-align: left;
+    padding-bottom: 100px;
+}
+
+#menu_img {
+    width: 40px;
+    height: 40px;
+    text-align: left;
+    vertical-align: bottom;
+    color: rgb(202,240,170);
+}
+
+#menu{
+	font-size: 30px;
+	font-weight: 700;
+	text-align: left;
+}
+
+#menu_right_div{
+	flex: 3;
+	text-align: right;
+	position: relative;
+	top: 10px;
+}
+
+#input_search {
+    width: 200px;
+    height: 26px;
+}
+
+#button_search{
+	width: 60px;
+	height: 30px;
+	border: none;
+	background: #77af82;
+	color: white;
+	border-radius: 5px;
+}
+
+#travel_info{
+	 border-bottom: 4px solid #efefef;
+}
+
+
+#cate_travel{
+	text-align:center;
+	color: #77af82;
+	font-weight: bolder;
+	margin-bottom: 10px;
+}
+
+#name_travel{
+	text-align:center;
+	font-size: xx-large;
+	margin-bottom: 10px;
+}
+
+#add_travel{
+	text-align:center;
+	margin-bottom: 40px;
+}
+
+#share{
+	margin-bottom: 10px;
+	text-align: right;
+}
+
+#share_span{
+	margin-right:5px;
+}
+
+#travel_content {
+    width: 900px;
+    text-align: left;
+    margin: 20px auto;
+}
+
+#th_cate{
+	font-size: 23px;
+}
+
+#tr_cate{
+	font-weight: bold;
+	
+}
+
+#content_img2{
+	width: 880px;
+	margin: 20px -6px 40px 0px;
+}
+
+#travel_cate_table {
+    padding: 0px;
+    font-size: 18px;
+    float: right;
+    margin-top: 55px;
+        margin-right: 20px;
+}
+
+#content_img3{
+	width: 400px;
+	/* 
+	margin
+	margin: 20px -6px 40px 0px; */
+}
+#hashtag_div{
+	/* padding: 10px; */
+	text-color : #a7e1af;
+	float: left;
+	list-style: none;
+		
+}
+
+#hashtag_div a{
+	text-decoration:none;
+	color:black;
+}
+#hashtag_div a:hover{
+    	text-decoration: underline;
+    	font-weight: 800;
+}
+
+#last_div{
+	margin-bottom: 50px;
+}
+
+#button_div{
+	text-align: center;
+	margin: 50px 0px;
+}
+
+#button_update{
+	width: 67px;
+	height: 30px;
+	border: none;
+	background: #EAEAEA;
+	border-radius: 5px;
+}
+
+#button_update:hover{
+	cursor: pointer;
+}
+
+#button_delete{
+	width: 67px;
+	height: 30px;
+	border: none;
+	background: #77af82;
+	color: white;
+	border-radius: 5px;
+}
+
+#button_delete:hover{
+	cursor: pointer;
+}
+
+
+#travel_cate_table{
+	    padding: 45px;
+}
+
+
+#td_cate{
+	padding:5px;
+}
+
+
+.fas {
+	margin-right : 5px;
+	width:18px;
+	height:18px;
+	
+}
+
+
+.share_name{
+	font-size: 12px;
+}
+
+
+.share_name:hover{
+	cursor: pointer;
+	text-decoration: underline;
+	
+}

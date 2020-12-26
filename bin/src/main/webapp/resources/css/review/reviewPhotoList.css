@@ -1,0 +1,172 @@
+@charset "UTF-8";
+section { margin: 0px auto; width:1300px; } 
+     
+   /* 공통속성  */
+#board_common{ margin : 40px auto 0px auto;}  
+
+
+/* 전체 div */
+
+
+#board{
+	
+	margin-left:150px;
+	width: 1000px;
+	border-bottom: 4px solid #eee;
+	padding-bottom:30px;
+	padding-left:25px;
+	margin-top:25px;
+}
+
+.divcontent {
+margin-right:0px;
+background-color:#eee;
+width:480px;
+display:inline-block;
+padding-right:2px;
+border-radius: 10px;
+
+
+
+}
+#img_td img{
+	max-width:90%;
+	max-height:90%;
+	border-radius: 7px;
+}
+#board_table{
+	text-align:center;
+
+	border-radius: 7px;
+	width:480px;
+}
+
+#img_td{
+	width:200px;
+	hegiht:200px;
+}
+
+
+  
+#paging_table_div{
+	padding-left:150px;
+}
+ 
+#paging_table{
+	width:1000px
+}
+
+
+.board_list{
+
+    border-bottom: 2px solid #eee;
+
+    padding: 15px;
+
+  }
+
+#all_div{
+	margin: 80px auto 0px auto;
+	width: 1000px;
+	border-bottom: 4px solid #eee;
+}
+
+/* img, 메뉴 이름, 검색 div */
+
+
+#menu_left_div{
+	margin-bottom: 20px;
+	text-align: left;
+	flex: 1;
+
+}
+
+
+#menu{
+	font-size: 30px;
+	font-weight: 700;
+	text-align: left;
+}
+
+
+.bo_btn{
+	width: 60px;
+	height: 30px;
+	border: none;
+	
+	border-radius: 3px;
+	margin-right:-7px;
+
+}
+#bo_btn{
+	padding-left:106px;
+}
+
+#bo_btn1{
+	color: black;
+	font-weight:bold;;
+	background-color: light-gray;
+}
+#bo_btn2{
+	color: white;
+	font-weight:bold;;
+	
+	background: #77af82; 
+}
+
+#cate_btn{
+	padding-left:150px;
+}
+.cate_btn{
+	padding-right:5px;
+	width: 60px;
+	height: 30px;
+	border: none;
+	background: #77af82;
+	color: white;
+	border-radius: 3px;
+	margin-right:-7px;
+}
+button:hover{
+	font-weight:bold;
+	background: #77af82;
+	color:white;
+}
+.page_btn{
+	border:none;
+	border-radius: 10px;
+	width:30px;
+	height:30px;
+	
+}
+#paging_table td{
+	width:50px;
+	padding:5px;
+}
+#write_btn{
+	font-weight:bold;;
+	padding-right:5px;
+	width: 60px;
+	height: 30px;
+	border: none;
+	background: #77af82;
+	color: white;
+	border-radius: 3px;
+	margin-right:-7px;
+}
+
+#select_search{
+	width:100px;
+	height:30px;
+	border-radius:50px;
+	
+	
+}
+#search{
+	height:25px;
+}
+#search_btn{
+	margin-right:65px;
+	width:50px;
+	height:25px;
+}

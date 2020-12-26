@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="memberMapper">
+    <select id="memberLogin" resultMap="memberResultSet">
+        select *
+        from member
+        where member_id=#{memberId}
+              and m_status='Y'
+    </select>
+    <resultMap type="Member" id="memberResultSet">
+        <id column="MEMBER_ID" property="memberId" />
+        <result column="MEMBER_PWD" property="memberPwd" />
+        <result column="MEMBER_NAMES" property="memberName" />
+        <result column="NICKNAME" property="nickName" />
+        <result column="GENDER" property="gender" />
+        <result column="PHONE" property="phone" />
+        <result column="MEMBER_EMAIL" property="email" />
+        <result column="M_STATUS" property="mStatus" />
+    </resultMap>
+    
+    <select id="memberCheck" resultType="_int">
+        select count(*)
+        from member
+        where member_id=#{memberId}
+    </select>
+    
+    <select id="nicknameCheck" resultType="_int">
+        select count(*)
+        from member
+        where nickname=#{nickname}
+    </select>
+    
+    <select id="checkEmail" resultType="_int">
+        select count(*)
+        from certification
+        where email=#{email}
+    </select>
+    
+    <select id="phoneCheck" resultType="_int">
+        select count(*)
+        from member
+        where phone=#{phone}
+    </select>
+    
+    <update id="ranNumCheckUpdate">
+        update certification
+        set randomkey=#{randomKey}
+        where email=#{email}
+    </update>
+    
+    <insert id="ranNumCheck">
+        insert into certification
+        values (#{email},#{randomKey})
+    </insert>
+    
+    <insert id="insertMember">
+        insert into member
+        values (#{memberId},#{memberPwd},#{memberName},#{nickName},#{gender},#{phone},#{email},DEFAULT )
+    </insert>
+    
+    <select id="searchIdPhone" resultMap="memberResultSet">
+        select member_id, member_names
+        from member
+        where member_names=#{memberName} and phone=#{phone}
+    </select>
+    
+    <select id="searchIdEmail" resultMap="memberResultSet">
+        select member_id, member_names
+        from member
+        where member_names=#{memberName} and member_email=#{email}
+    </select>
+    
+    <select id="searchPwdEmail" resultMap="memberResultSet">
+        select member_id, member_names
+        from member
+        where member_id=#{memberId} and member_email=#{email}
+    </select>
+    
+    <update id="updatePwd">
+        update member
+        set member_pwd=#{memberPwd}
+        where member_id=#{memberId}
+    </update>
+
+</mapper>

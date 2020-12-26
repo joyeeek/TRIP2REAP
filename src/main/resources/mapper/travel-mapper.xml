@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="travelMapper">
+<!-- 	<select id="getAllListCount" resultType="_int">
+		select count(*)
+        from tlist
+        where ca_code = 1
+              and bo_delete_yn = 'N'
+	</select> -->
+	
+	<select id="getListCount" resultType="_int" parameterType="hashmap">
+		select count(*)
+        from tlist
+        where ca_code = 1
+              and bo_delete_yn = 'N'
+       <choose>
+	     	<when test="!title.equals('all')">
+			AND BO_TITLE LIKE '%' || #{title} || '%'
+			</when>
+			<when test="!hashTag.equals('all')">
+				AND BO_TAG LIKE '%' || #{hashTag} || '%'
+			</when>
+		</choose>
+ 	 	<choose>	
+			<when test="!reg.equals('all')">
+				AND TR_REG LIKE '%' || #{reg} || '%'
+			</when>
+			<when test="!tm.equals('all')">
+				AND TR_THEME LIKE '%' || #{tm} || '%'
+			</when>       
+        </choose> 
+       
+	</select>
+	
+	
+	
+	<select id="selectList" resultMap="travelResultSet" parameterType="hashmap">
+		select *
+		from tlist
+		where ca_code = 1
+				and bo_delete_yn = 'N'
+				
+		 
+	      <choose>
+	     	<when test="!title.equals('all')">
+			AND BO_TITLE LIKE '%' || #{title} || '%'
+			</when>
+			<when test="!hashTag.equals('all')">
+				AND BO_TAG LIKE '%' || #{hashTag} || '%'
+			</when>
+		</choose>
+ 	 	<choose>	
+			<when test="!reg.equals('all')">
+				AND TR_REG LIKE '%' || #{reg} || '%'
+			</when>
+			<when test="!tm.equals('all')">
+				AND TR_THEME LIKE '%' || #{tm} || '%'
+			</when>       
+        </choose>        
+      		 
+		order by bo_no desc
+	</select>
+	
+	<resultMap type="Travel" id="travelResultSet">
+		<id column="BO_NO" property="boNo"/>
+		<result column="CA_CODE" property="caCode"/>
+		<result column="BO_TITLE" property="boTitle"/>
+		<result column="BO_CONTENT" property="boContent"/>
+		<result column="MEMBER_ID" property="memberId"/>
+		<result column="BO_COUNT" property="boCount"/>
+		<result column="BO_TAG" property="boTag"/>
+		<result column="BO_DELETE_YN" property="boDeleteYN"/>
+		<result column="REGDATE" property="regDate"/>
+		<result column="TR_NO" property="trNo"/>
+		<result column="TR_ADDR" property="trAddr"/>
+		<result column="TR_THEME" property="trTheme"/>
+		<result column="TR_REG" property="trReg"/>
+		<result column="TR_TITLE" property="trTitle"/>
+		<result column="TR_PHONE" property="trPhone"/>
+		<result column="CHANGE_NAME" property="changeName"/>
+	</resultMap>
+	
+	
+
+	<!-- <insert id="insertTravel">
+		<selectKey keyProperty="boNo" resultType="Integer" order="BEFORE">
+		select seq_bo_no.nextval from dual
+		</selectKey>
+		insert all 
+		into board values(${boNo},1,#{boTitle},#{boContent},#{memberId},#{boCount},#{boTag},default,sysdate)
+		into travel values(seq_trno.nextval, ${boNo}, #{trAddr}, #{trTheme}, #{trReg}, #{trTitle}, #{trPhone})
+		select * from dual
+	</insert> -->
+	
+ 	<insert id="insertTravel">
+		insert all 
+		into board values(seq_bo_no.nextval,1,#{boTitle},#{boContent},#{memberId},#{boCount},#{boTag},default,sysdate)
+		into travel values(seq_trno.nextval, seq_bo_no.currval, #{trAddr}, #{trTheme}, #{trReg}, #{trTitle}, #{trPhone})
+		select * from dual
+	</insert>
+	<!-- <insert id="insertFiles">
+		insert
+		into img_file(file_no, bo_no, origin_name, change_name)
+		values(seq_file_no.nextval, seq_bo_no.currval, #{originName}, #{changeName})
+	</insert>  -->
+	
+	
+	<insert id="insertFiles">
+		insert
+		into img_file
+		values(seq_file_no.nextval, seq_bo_no.currval, #{originName}, #{changeName}, 1, 'null', default)
+	</insert> 
+	
+	<!-- <insert id="insertOneThumImg">
+		insert
+		into img_file
+		values(seq_file_no.nextval, seq_bo_no.currval, #{originName}, #{changeName}, #{fileLevel}, #{filePath}, default)
+	</insert> ORA-08002: sequence SEQ_BO_NO.CURRVAL is not yet defined in this session 이딴에러가 ㅜ
+	 -->
+	
+	
+	
+	
+	<update id="addReadCount">
+		update board
+		set bo_count = bo_count + 1
+		where bo_no = #{boNo}
+	</update>
+	
+	
+	<select id="selectTravel" resultMap="travelResultSet">
+		select *
+		from tdetail
+		where ca_code = 1
+				and bo_no = #{boNo}
+				and bo_delete_yn = 'N'
+	</select>
+	
+<!-- 	<update id="updateTravel">
+		update board as b, update img_file as f
+		set b.bo_title = #{boTitle}, b.bo_content = #{boContent}, b.bo_delete_yn = sysdate, b.bo_tag=#{boTag}, 
+			f.origin_name = #{originName}, f.change_name=#{changeName}
+		where b.bo_no = #{boNo}
+	</update> -->
+		<!-- <update id="updateTravel">
+		update board b
+		set B.BO_TITLE=#{boTitle},
+			B.BO_CONTENT=#{boContent},
+   	        B.BO_TAG= #{boTag},  
+   	        B.REGDATE= sysdate
+   	    where b.bo_no = #${boNo}    
+	</update> -->
+<!-- 	<update id="updateTravel">
+	update (
+		select b.bo_content, b.bo_title, b.bo_delete_yn, b.bo_tag, t.tr_addr, t.tr_reg, t.tr_theme,
+		i.origin_name, i.change_name
+		from board b, img_file i, travel t
+		where b.bo_no = i.bo_no and
+		      t.bo_no = b.bo_no
+	)
+	set  b.bo_content = #{boContent}, b.bo_title = #{boTitle}, b.bo_delete_yn = sysdate, b.bo_tag=#{boTag}, t.tr_addr=#{trAddr}, t.tr_reg=#{trReg}, t.tr_theme=#{trTheme},
+			i.origin_name = #{originName}, i.change_name=#{changeName}
+		
+	</update> -->
+	
+	<update id="updateTravel">
+	update travel t
+	set t.tr_addr=#{trAddr}, t.tr_reg=#{trReg}, t.tr_theme=#{trTheme}
+	where t.bo_no = #{boNo}
+	</update>
+	
+	<update id="updateBoard">
+	update board b
+	set b.bo_content = #{boContent}, b.bo_title = #{boTitle}, b.bo_tag=#{boTag}
+	where b.bo_no = #{boNo}
+	</update>
+	
+	<update id="updateFile">
+	update img_file i
+	set i.origin_name = #{originName}, i.change_name=#{changeName}
+	where i.bo_no = #{boNo}
+	</update>
+	
+	
+	<update id="deleteTravel">
+       update board 
+       set BO_DELETE_YN='Y'
+       where BO_NO=#{boNo} 
+   </update> 
+   
+    <update id="deleteFile">
+       update img_file 
+       set FILE_DELETE_YN='Y'
+       where BO_NO=#{boNo} 
+   </update>  
+	
+
+</mapper>

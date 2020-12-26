@@ -1,0 +1,61 @@
+:root{
+	--blue-gray: #a1c6e3;
+}
+
+div { margin: 0px; padding: 0px; }
+input[type=text]:focus{ outline: none; }
+input[type=password]:focus{ outline: none; }
+input[type=button]:focus{ outline: none; }     
+.swal-button:focus { box-shadow: none; }     
+     
+/* 공통속성  */
+#board_list{ margin : 40px auto 0px auto; width: 1300px;}
+     
+     
+/* 호텔 예약 정보 설명란  */
+#infor1 { height: 50px; }
+#infor2 { display: inline-block; width:530px; }
+#infor3 { display: inline-block; height: 50px; font-size: 30px; font-weight:bold; text-align: center; }
+#up_space1 { height : 30px; }
+#myHotelIcon { font-size: 28px; margin-right: 8px; color: rgb(69,86,104); }
+
+
+/* 리스트  */
+#list_all_div { margin: 30px auto 0px auto; width: 840px; }
+#list_empty_div { width: 840px; background: #efefef; margin-right: 30px; }
+#list_hotel_div { width: 840px; display: flex; margin-bottom: 35px; background : white;
+                  box-shadow: 0 4px 10px 0 #bec2c9; transition : box-shadow .3s ease; }
+#hotel_img_div{ width: 280px; }
+#hotel_img{ width: 250px; height: 170px; margin-left: 10px; margin-top: 10px; margin-bottom: 10px; }
+#hotel_name_writer_div{ padding: 34px 0px 0px 35px; width: 600px; }
+#hotel_no{ display : none; }
+#hotel_name:hover { cursor: pointer; text-decoration: underline; }
+#hotel_name { font-size: 18px; font-weight: 700; margin: 13px -10px; }
+#hotel_tag{ display: inline-block; overflow: hidden; background: #fff; text-align: center; font-size: 16px;
+             font-weight: 400; color: #777; border: 1px solid #d8d7d7; border-radius: 5px; }
+#hotel_theme{ color: #497f55; font-weight: 700; margin-bottom: 22px; font-size: 17px; } 
+.hotelCheck{ font-size: 13px; padding: 10px 0; position: relative; display: flex; flex-direction: row;
+             justify-content: space-between; align-items: flex-start; }
+#hotelCheckUl{ list-style-type: none; }
+#hotelCheckUl li{ display: flex; flex-direction: row; justify-content: center; align-items: center; padding: 1px 0; margin-left : -8px; }
+#hotelCheckUl .ck_label1{ width: 43px; margin-left: 13px; }
+#hotelCheckUl .ck_label2{ width: 56px; }
+#checkInLabel,#checkOutLabel{ margin-left: 12px; width: 73px; }
+#hotel_room{ font-size: 13px; margin-top: 40px; margin-left : -9px; font-weight: bold; display: inline-block; }
+#hotel_price{ font-size: 18px; font-weight: bold; margin-left: 248px; width: 115px; vertical-align: bottom; line-height: 34px; }
+#hotel_r1{ display: inline-block; font-size: 13px; font-weight: bold; color: rgb(108,151,249);
+           margin-bottom: 15px; margin-left: 44px; margin-right: 10px; cursor: pointer; vertical-align: middle; line-height: 33px; }
+#hotel_a{ color: rgb(108,151,249); }
+#hotel_r2{ display: inline-block; font-size: 13px; font-weight: bold; color: rgb(108,151,249);
+           margin-bottom: 15px; cursor: pointer; vertical-align: middle; }
+#hotel_r3{ display: inline-block; font-size: 13px; font-weight: bold; color: rgb(108,151,249);
+           margin-bottom: 15px; margin-left: 10px; cursor: pointer; vertical-align: middle; }
+#detailReservation{ font-size: 13px; border: 1px solid #5392f9; background: rgb(108,151,249);
+                    width : 85px; height: 30px; color: white; border-radius: 5px; cursor: pointer; font-weight: bold;
+                    margin-bottom: 20px; margin-left: 431px; }
+#detailReservation:hover{ background: rgb(118,161,259); }
+#myHotelBtn { margin-left: 370px; height: 30px; width: 120px; background: rgb(109,126,144); cursor: pointer; border: none; 
+               color: white; font-weight: 600; }
+#myHotelBtn:hover { background: rgb(119,136,154); }
+#emptyHotel { text-align: center; }
+#myHotelBtn, #detailReservation:focus{ outline: none; }

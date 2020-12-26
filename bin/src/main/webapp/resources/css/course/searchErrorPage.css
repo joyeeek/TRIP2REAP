@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+/* 전체 div */
+#all_div{
+	margin: 80px auto 0px auto;
+	width: 1000px;
+/* 	background: rgb(255, 225, 230, 0.5); */
+}
+
+/* img, 메뉴 이름, 검색 div */
+#menu_div{
+	padding: 0px 10px;
+    border-bottom: 4px solid #efefef;
+	display: flex;
+/* 	background: rgb(200, 200, 255, 0.5); */
+}
+
+#menu_left_div{
+	margin-bottom: 20px;
+	flex: 1;
+	text-align: left;
+}
+
+#menu_img{
+	width: 40px;
+	height: 40px;
+	text-align: left;
+	vertical-align: bottom;
+}
+
+#menu{
+	font-size: 30px;
+	font-weight: 700;
+	text-align: left;
+}
+
+#menu_right_div{
+	flex: 3;
+	text-align: right;
+	position: relative;
+	top: 10px;
+}
+
+#input_search{
+	width: 200px;
+	height: 26px;
+}
+
+#button_search{
+	width: 60px;
+	height: 30px;
+	border: none;
+	background: #77af82;
+	color: white;
+	border-radius: 5px;
+}
+
+/* 에러 멘트 div */
+#error_div{
+	margin: 100px auto;
+	padding: 50px;
+	width: 900px;
+	background: #efefef;
+	text-align: center;
+}
+
+#x_circle{
+	font-size: 50px;
+}
+
+#no_result{
+	margin: 10px;
+	font-size: 30px;
+	font-weight: 700;
+}
+
+#button_list{
+	margin: 20px;
+	width: 70px;
+	height: 30px;
+	border: none;
+	background: #77af82;
+	color: white;
+	border-radius: 5px;
+}
+
+/* button hover 시 cursor 변경 */
+#button_search, #button_list:hover{
+	cursor: pointer;
+}
+
+/* input이나 button 클릭 시 outline 제거 */
+#input_search, #button_search, #button_list:focus{
+	outline: none;
+}

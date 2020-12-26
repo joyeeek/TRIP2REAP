@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!--
+		mvc annotation을 사용하여 객체를 만든다.
+		servlet-context는 기본으로 주 name space가 mvc지만
+		나머지 context파일들은 주 name space가 beans파일이라는 걸 염두하자.
+		그래서 mvc관련 태그들을 불러올때 mvc:를 붙여야한다.
+		그반면 beans관련 태그들은 beans: 라고 붙이지 않아도 된다.
+	-->
+	<mvc:annotation-driven/>
+	<mvc:resources mapping="/resources/**" location="/resources/"/>
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- controller에서 jsp파일을 불러올때, 해당 jsp파일의 경로를 의미한다. -->
+		<property name="prefix" value="/WEB-INF/views/hotel/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	<context:component-scan base-package="trip.two.reap"></context:component-scan>
+
+</beans>

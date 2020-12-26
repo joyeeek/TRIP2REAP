@@ -1,0 +1,88 @@
+
+     /* 공통속성  */
+     #board_list{ margin : 40px auto 0px auto; width: 1300px;}                 
+     
+     
+     /* 정보입력란  */
+     #infor1 { height: 50px; }
+     #infor2 { display: inline-block; width:570px; }
+     #infor3 { display: inline-block; height: 50px; font-size: 30px; font-weight:bold; text-align: center; }
+     #infoDiv1 { display : inline-block; width: 810px; }
+     #infoDiv2 { display : inline-block; color: red; }
+     #infoDiv3 { display : inline-block; font-size: 15px; }
+     #up_space1 { height : 30px; }
+     #up_space2 { height : 10px; }
+     #infoDiv4 { display : inline-block; width : 288px; height : 30px; }
+     
+     
+     /* 정보입력란 - 공통속성  */
+     .infoLabel { font-size: 14px; color : darkgray; line-height: 53px; margin: 50px; }
+     #commonLabel { color: red; padding-left: 20px; }
+     .infoLeft { display : inline-block; border: 1px solid lightgray; width : 180px; height : 50px; 
+                 background: rgb(251, 251, 251); vertical-align: top; border-top: none; }
+     .infoRight { display : inline-block; border: 1px solid lightgray; width : 520px; height : 50px; 
+                  border-left: none; vertical-align: top; border-top: none; }
+     .infoText { width : 480px; height : 50px; border: none; font-size: 13px; color: darkgray;  }
+     .infoText2 { width : 480px; height : 50px; border: none; font-size: 14px; font-weight: bold; }
+     #space_5 { display : inline-block; width : 200px; }
+     
+     
+     /* 아이디  */
+     #id1 { display : inline-block; border: 1px solid lightgray; width : 180px; height : 50px; 
+            background: rgb(251, 251, 251); vertical-align: top; }         
+     #id2 { display : inline-block; border: 1px solid lightgray; width : 520px; height : 50px; 
+            border-left: none; vertical-align: top; }
+     #idText { width : 480px; height : 50px; border: none; font-size: 14px; margin-left: 20px; font-weight: bold; }
+     
+     
+    /* 비밀번호  */
+     #pwdMessage { display : inline-block; width : 100px; height : 30px; background: rgb(226,240,217); font-size: 13px; 
+                    color : rgb(119,175,130); border : 1px solid rgb(119,175,130); text-align: center; vertical-align: middle; }
+     #pwdLabel { line-height: 27px; cursor: pointer; }
+     #pwdText2 { width : 360px; height : 50px; border: none; font-size: 13px; color: darkgray; }
+     
+     
+     /* 이름  */
+     #name { display : inline-block; border: 1px solid lightgray; width : 180px; height : 50px; 
+             background: rgb(251, 251, 251); vertical-align: top; }         
+     #name2 { display : inline-block; border: 1px solid lightgray; width : 520px; height : 50px; 
+              border-left: none; vertical-align: top; }
+     
+              
+     /* 이메일  */
+     /* #emailText { width : 360px; height : 50px; border: none; font-size: 13px; color: darkgray; } */
+     #emailText { width : 360px; height : 50px; border: none; font-size: 14px; font-weight: bold; }
+     #sendMessage { display : inline-block; width : 100px; height : 30px; background: rgb(226,240,217); font-size: 13px; 
+                    color : rgb(119,175,130); border : 1px solid rgb(119,175,130); text-align: center; vertical-align: middle; }
+     #mailLabel { line-height: 27px; cursor: pointer; }
+     
+     
+     /* 인증번호  */
+     #confirmDiv { display : none;  }
+     #confirmText { width : 360px; height : 50px; border: none; font-size: 13px; color: darkgray; }
+     #confirmMessage { display : inline-block; width : 100px; height : 30px; background: rgb(226,240,217); font-size: 13px; 
+                       color : rgb(119,175,130); border : 1px solid rgb(119,175,130); text-align: center; vertical-align: middle; }
+     #confirmLabel { line-height: 28px; cursor: pointer; }
+     
+     
+     /* 성별  */
+     #gender { line-height: 50px; }
+     #man { display : inline-block; width : 70px; height : 30px; background: white; font-size: 13px; color : rgb(119,175,130); 
+            border : 1px solid rgb(119,175,130); text-align: center; vertical-align: middle; cursor: pointer; margin-left: 20px; }
+     #woman { display : inline-block; width : 70px; height : 30px; background: white; font-size: 13px; color : rgb(119,175,130); 
+              border : 1px solid rgb(119,175,130); text-align: center; vertical-align: middle; cursor: pointer; margin-left: 3px; }
+     
+     
+     /* 버튼  */
+     #space_6 { height : 50px; }
+     #space_7 { display : inline-block; width : 430px; }
+     #applyBtn1 { background: lightgray; color:white; width: 200px; height : 50px; 
+                  border: none; font-size: 15px; font-weight: bold; cursor: pointer; }
+     #space_8 { display: inline-block; width: 10px; }
+     #applyBtn2 { background: rgb(119,175,130); color:white; width: 200px; height : 50px; 
+                  border: none; font-size: 15px; font-weight: bold; cursor: pointer; }
+                  
+     #applyBtn1, #applyBtn2:focus{ outline: none; }
+     
+     
+     

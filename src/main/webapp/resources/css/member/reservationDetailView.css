@@ -1,0 +1,310 @@
+@charset "UTF-8";
+:root{
+	--salmon-pink: #FF84A1;
+}
+
+section{
+  height: 100%;
+  width: 100%;
+  margin:0; 	
+  padding: 0;
+  background-color: transparent; 
+  font-family: "Source Sans Pro", "Helvetica", sans-serif;
+  letter-spacing: 1.5px;
+}
+
+#hotelPaySpace1{ height: 100px; }
+
+.paypal {
+  position: relative;
+  left: 50%;
+  display: inline-block; 
+  width: 500px;
+  margin: 10px auto 25px;
+  padding: 5px 0;  
+  clear: both;
+  box-shadow: 0 4px 10px 0 #bec2c9;
+
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.paypal__header {
+  display: flex;
+  -ms-align-items: flex-start;
+  align-items: flex-start;	
+  padding: 30px;
+  background: #fff; 
+
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  
+  border-top: 1px solid var(--bright-gray);
+  border-left: 1px solid var(--bright-gray);
+  border-right: 1px solid var(--bright-gray);
+}
+
+.paypal__logo-wrapper {
+  flex: 1 0 40%;
+}
+
+.paypal__logo {
+  display: block;
+  width: 50px;
+  height: auto;
+  margin-left: 15px;
+}
+
+.paypal__header-info {
+  flex: 1 0 50%;
+}
+
+.paypal__date{
+  display: block;
+  font-size: 12px;;
+  color: #aaa;
+  font-weight: 300;
+  text-align: right;
+}
+
+.paypal__ref {
+  display: block;
+  font-size: small;
+  color: #aaa;
+  font-weight: 300;
+  text-align: right;
+}
+
+#reserveName{ margin-right: 10px; font-size: 12px; }
+
+.paypal__date {
+  margin-bottom: 5px;
+  font-size: 0.5em;
+}
+
+.paypal__subheader-wrapper {
+  background: #fff;
+  padding-bottom: 20px;
+
+  border-left: 1px solid var(--bright-gray);
+  border-right: 1px solid var(--bright-gray);
+  border-bottom: 2px dashed var(--salmon-pink); 
+}
+
+.paypal__subheader {
+  padding: 0 45px 0 40px;
+  border-left: 5px solid var(--salmon-pink);
+}
+
+.paypal__username {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  font-weight: 600;
+  font-size: 23px;
+}
+
+.paypal__help-text {
+  color: #aaa;
+  font-weight: 300;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+.paypal__cart {
+  display: block;
+  padding: 25px 30px 25px;
+  
+  border-left: 1px solid  var(--bright-gray);
+  border-right: 1px solid var(--bright-gray);
+}
+
+.paypal__cart-title {
+  font-size: 18px;
+  display: block;
+  margin-top: 0;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.paypal__cart-title > a,
+.paypal__cart-title > a:hover{
+	text-decoration: none;
+}
+
+.paypal__cart-list {
+  position: relative;
+  margin: 0;
+  padding: 0 15px;
+  width: 90%;
+  list-style: none;
+}
+
+.paypal__cart-item {
+  display: block;
+  padding-top: 15px;
+  margin-bottom: 15px;  
+  border-top: 2px dashed #aaa;
+  font-size: 14px;
+}
+
+.paypal__cart-item:first-child {
+  border-top: 0;
+}
+
+.paypal__cart-item:last-child {
+  margin-bottom: 0;
+}
+
+.paypal__item-name {
+  font-weight: 300;
+  margin-left: 5px;
+}
+
+.paypal__item-price {
+  float: right;
+  letter-spacing: 1px;
+}
+
+.paypal__item-price2 {
+  float: right;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.paypal__item-price3 {
+  letter-spacing: 1px;
+}
+
+.paypal__cart-total {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.paypal__footer {
+  position: relative;
+  padding: 30px 20px; 
+  border-top: 2px dashed var(--salmon-pink);  
+  border-bottom: 1px solid var(--bright-gray);
+  border-left: 1px solid var(--bright-gray);
+  border-right: 1px solid var(--bright-gray);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.detail-info{
+	color: #aaa;
+}
+
+@keyframes show-paypal {
+ 0% {
+   opacity: 0;
+   transform: scale(0) translateX(-50%);
+ }
+
+ 85% {
+   opacity: 0;
+ }
+
+ 100% {
+   opacity: 1;
+   transform: scale(1) translateX(-50%);
+ }
+}
+
+.paypal {
+  transform-origin: top left;
+  animation: show-paypal 1s ease-out forwards;
+}
+
+@keyframes show-subheader {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  65% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.paypal__subheader {
+  opacity: 0;
+  animation: show-subheader 1s 0.5s ease-out forwards;
+}
+
+@keyframes slide-down {
+  to {
+    transform: perspective(100px) rotateX(0) translate3d(0, 0, 0);
+  }
+}
+
+.paypal__cart {
+  background-color: #fff;
+
+  transform-style: preserve-3d;
+  transform-origin: top center;
+  transform: perspective(100px) rotateX(-90deg) translate3d(0, 0, 0);
+
+  animation: slide-down 0.4s 2s ease-out forwards;
+}
+
+.paypal__footer {
+  background-color: #fff;
+
+  transform-style: preserve-3d;
+  transform-origin: top center;
+  transform: perspective(100px) rotateX(-90deg) translate3d(0, 0, 0);
+
+  animation: slide-down 0.4s 2.5s ease-out forwards;
+}
+
+@keyframes show-cart-title {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.paypal__cart-title {
+  opacity: 0;
+  transform: translateY(10px);
+
+  animation: show-cart-title 0.5s 2.25s ease-in forwards;
+}
+
+@keyframes show-cart-item {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.paypal__cart-item {
+  opacity: 0;
+  transform: translateX(-30px);
+
+  animation: show-cart-item 0.3s 2.75s ease-in forwards;
+}
+
+.paypal__cart-item:nth-child(2) {
+  animation-delay: 2.9s;
+}
+
+.paypal__cart-item:nth-child(3) {
+  animation-delay: 3.05s;
+}
+
+.paypal__cart-item:nth-child(4) {
+  animation-delay: 3.2s;
+}
+
+#hotelInfor{ margin-top: -15px; text-align: center; }

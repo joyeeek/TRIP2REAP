@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="travelMapper">
+	<select id="getListCount" resultType="_int">
+		select count(*)
+        from board
+        where ca_code = 2
+              and bo_delete_yn = 'N'
+	</select>
+	
+	
+	<!-- <select id="selectList" resultMap="travelResultSet">
+		select *
+		from board
+		where ca_code = 2
+              and bo_delete_yn = 'N'
+		order by bo_no desc
+	</select>
+	<resultMap type="Travel" id="travelResultSet">
+		<id column="BO_NO" property="boNo"/>
+		<result column="CA_CODE" property="caCode"/>
+		<result column="BO_TITLE" property="boTitle"/>
+		<result column="BO_CONTENT" property="boContent"/>
+		<result column="MEMBER_ID" property="memberId"/>
+		<result column="BO_COUNT" property="boCount"/>
+		<result column="BO_TAG" property="boTag"/>
+		<result column="BO_DELETE_YN" property="boDeleteYN"/>
+		<result column="REGDATE" property="regDate"/>
+	</resultMap> -->
+	
+	<select id="selectList" resultMap="travelResultSet">
+		select *
+		from tlist
+		where ca_code = 2
+				and bo_delete_yn = 'N'
+		order by bo_no desc
+	</select>
+	<resultMap type="Travel" id="travelResultSet">
+		<id column="BO_NO" property="boNo"/>
+		<result column="CA_CODE" property="caCode"/>
+		<result column="BO_TITLE" property="boTitle"/>
+		<result column="BO_CONTENT" property="boContent"/>
+		<result column="MEMBER_ID" property="memberId"/>
+		<result column="BO_COUNT" property="boCount"/>
+		<result column="BO_TAG" property="boTag"/>
+		<result column="BO_DELETE_YN" property="boDeleteYN"/>
+		<result column="REGDATE" property="regDate"/>
+		<result column="TR_NO" property="trNo"/>
+		<result column="TR_ADDR" property="trAddr"/>
+		<result column="TR_THEME" property="trTheme"/>
+	</resultMap>
+</mapper>

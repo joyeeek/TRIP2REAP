@@ -1,0 +1,55 @@
+     div { margin: 0px; padding: 0px; }         
+     
+     /* 공통속성  */
+     #board_list{ margin : 40px auto 0px auto; width: 1300px;}
+          
+          
+     /* 회원탈퇴 설명란  */
+     #infor1 { height: 50px; }
+     #infor2 { display: inline-block; width:577px; }
+     #infor3 { display: inline-block; height: 50px; font-size: 30px; font-weight:bold; text-align: center; }
+     #up_space1 { height : 10px; }
+     #infoDiv1 { display : inline-block; width: 488px; }
+     #infoDiv2 { display : inline-block; font-size: 14px; }
+     #up_space2 { height : 40px; }
+     #myDeleteIcon { font-size: 28px; margin-right: 8px; color: rgb(69,86,104); }
+     
+     
+     /* 회원탈퇴 박스  */
+     #infor4 { display : inline-block; width: 330px; }
+     #deleteDiv { display : inline-block; height : 340px; width:695px; font-size : 13px; 
+                  border: 2px solid lightgray; overflow-y : scroll; line-height: 20px; }
+     
+     
+     /* 버튼  */
+     #up_space3 { height : 25px; } 
+     #up_space4 { display : inline-block; width : 488px; }
+     #up_space5 { height : 35px; }
+     #delCheck { display: inline-block; font-size: 14px;}
+     #up_space6 { display : inline-block; width : 463px; }
+     #outBtn1 { background: lightgray; color:white; width: 200px; height : 50px; 
+                  border: none; font-size: 15px; font-weight: bold; cursor: pointer; }
+     #outBtn1:hover{ background-color: rgb(200,200,200); }
+     #up_space7 { display: inline-block; width: 10px; }
+     #outBtn2 { background: rgb(89,106,124); color:white; width: 200px; height : 50px; 
+                  border: none; font-size: 15px; font-weight: bold; cursor: pointer; }
+     #outBtn2:hover { background-color: rgb(119,136,154); }
+     
+                  
+     /* 모달  */
+     #delLabel { font-size: 17px; font-weight: 600; text-align: center; color : rgb(76,76,76); line-height: 26px; }
+     #delText{ display : inline-block; width: 230px; height: 35px; font-size: 12px; padding-left: 10px; 
+               border: 2px solid rgb(200,200,200); font-weight: 500;  }
+     #delBtn { display: inline-block; background: rgb(89,106,124); color:white; width: 100px; height : 35px; 
+               border: none; font-size: 13px; font-weight: 600; cursor: pointer; margin-left: 10px; }
+     #delBtn:hover{ background-color: rgb(119,136,154); }
+     #delBtn2 { background: lightgray; color:white; width: 100px; height : 35px; 
+                border: none; font-size: 13px; font-weight: 600; cursor: pointer; }
+     #delBtn2:hover{ background-color: rgb(200,200,200); }
+     #up_space8 { display: inline-block; width: 100px; }
+     #up_space9 { height: 40px; }
+     
+                  
+     #outBtn1, #outBtn2, #delText, #delBtn:focus{ outline: none; }
+
+     

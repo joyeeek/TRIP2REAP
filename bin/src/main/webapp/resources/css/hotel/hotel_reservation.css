@@ -1,0 +1,458 @@
+@charset "UTF-8";
+/* common for all hotel pages */
+:root { 
+	--dark-green: #497f55; 
+	--mid-green: #77af82; 
+	--bright-green: #a7e1af; 
+	--emerald-green: #55c9a4; 
+	--dark-gray: #515357; 
+	--blue-gray: #cfe3e1; 
+	--pink-gray: #eaeaea; 
+	--heart-pink: #f52043; 
+	--hash-gray: #c8cbcc; 
+	--btn-color: #fff; 
+	--edit-red: #f56c85; 
+	--edit-red-hover: #bd3951;
+	--viewer-black: #222;
+	
+	--menu-icon:  rgb(255,167,167); 
+}
+
+html, body{
+	margin: 0;
+	padding: 0;
+}
+
+#main-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center; 
+	
+	width: 1000px;
+	margin: 50px auto;
+	box-sizing: content-box;
+}
+
+#title-container {
+	box-sizing: content-box;
+	padding-left: 10px;
+	text-align: left;
+	vertical-align: bottom;
+	padding-top: 30px;
+	padding-bottom: 20px;
+	border-bottom: 4px solid #eee;
+}
+
+#hotel-icon {
+	width: 40px;
+	height: 40px;
+	margin-right: 4px;
+	color: var(--menu-icon);
+	vertical-align: bottom;
+	text-align: left;
+}
+
+#title-name {
+	font-size: 30px;
+	font-weight: 700;
+	text-align: left;
+}
+
+input[type="text"]:focus,
+button:focus{
+	outline: none;
+}
+
+
+/*  
+========================================================
+0.  only for hotel_reservation - 공통  
+*/
+
+.hotel_reservation_common_container{
+	position: relative;
+	padding: 25px 100px;
+	text-align: center;
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	
+	border-bottom: var(--pink-gray) 1px solid;
+}
+
+.hotel_reservation_common_container:last-child{
+	border-bottom-color: transparent;
+}
+
+.subtitle-container{
+	margin-top: 10px;
+	margin-bottom: 10px;
+/* 	padding-bottom: 20px; */
+}
+
+.subtitle-container > h1{
+	font-size: 28px;
+}
+
+.hotel-reservation-content-container{
+	padding: 25px 100px;
+}
+
+/*  
+========================================================
+1. 예약 호텔 / 방 정보 
+*/
+#reserve_hotel_room_info_container{
+	padding-bottom: 0px;
+}
+
+
+.hotel-name-wrapper,
+.room-name-wrapper{
+	padding-bottom: 10px;
+}
+
+.hotel-name-wrapper{
+	color: var(--dark-green);
+}
+
+.hotel_reservation_common_container:nth-child(1) .subtitle-container:nth-child(1){
+	padding-bottom:0;
+	margin-bottom: 0;
+}
+
+div.hotel_reservation_common_container:nth-child(3){
+	padding-top: 25px;
+}
+
+#hotel_name{
+	font-size: 32px;
+}
+
+#room_name{
+	font-size: 25px;
+}
+
+
+.room-per-day-price-wrapper{
+	padding: 15px 0;
+}
+
+h4.room-per-day-priece-title{
+	font-size: 2em;
+}
+
+span#room_price_per_day{
+	padding: 0 10px;
+	font-size: 1.4em;
+	color: var(--dark-gray);
+	font-weight: bold;
+}
+
+/*  
+========================================================
+2. 체크인/ 체크아웃 시간 선택. 
+*/
+
+.calendar_container{
+	position: relative;
+	width: 100%;
+	text-align: center;
+	
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.calendar_wrapper{
+	position: relative;
+	display: flex;
+	
+	padding: 0 10px;
+	
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+
+.calendar_icon_wrapper,
+.calendar_content_wrapper{
+	position: relative;
+	display: inline-block;
+}
+
+.calendar_icon_wrapper{
+	width: 25px;
+	height: 25px;
+	padding: 10px;
+	background-color: var(--bright-green);
+	text-align: center;
+	
+	border-top-left-radius: 3px;
+	border-bottom-left-radius:3px;
+}
+
+.calendar_icon{
+	position: relative;
+	vertical-align: bottom;
+}
+
+
+.calendar_content_wrapper > input{
+	position: relative;
+	height: 25px;
+	padding: 8px 10px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border: var(--blue-gray) 2px solid;
+	border-left-color: transparent;
+}
+
+
+#hotel_using_container{
+	position: relative;
+	width: 100%;
+	text-align: center;
+	
+	/* display: flex; */
+	display: none;
+	
+	
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+#hotel_using_days_container,
+#hotel_using_payment_container{
+	position: relative;
+}
+
+#hotel_using_days_container{
+	padding: 30px 0;
+}
+
+
+.info-span{
+	font-size: 1.2em;
+}
+
+.hotel_using_span{
+	font-size: 1.6em;
+	color: var(--mid-green);
+	font-weight: 900;
+}
+
+/*  
+========================================================
+3. 객실 및 인원수 선택 
+*/
+
+.count_reserve_person_container{
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+
+	/* text */
+	/* 
+	border-radius: 3px;
+	border: var(--blue-gray) 1px solid;
+	 */
+}
+
+.count_container{
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	
+	
+	
+	width: 85%;
+	margin: 0 25px;
+	
+}
+
+
+.count_container:nth-child(2),
+.count_container:nth-child(3){
+	border-top: var(--blue-gray) 1px solid;
+
+}
+
+/* 성인/ 어린이 라벨   */
+.count_label{
+	position: relative;
+	flex-basis: 30%;
+	font-size: 1.5em;
+	padding: 15px 25px;
+	
+	text-align: center;
+}
+
+
+/*  */
+.count_wrapper{
+	position: relative;
+	
+	flex-basis: 70%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+
+	padding: 15px 25px;
+}
+
+/* 인원 증감 버튼 */
+.button_wrapper{
+	position: relative;
+}
+
+.button_wrapper button,
+.button_wrapper div{
+	position: relative;
+	display: inline-block;
+	margin: 0 10px;
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+.button_wrapper div{
+	width: 100px;
+}
+
+
+
+.minus_btn, .plus_btn{
+	width: 30px;
+	height: 30px;
+	
+	position: relative;
+	background-color: var(--bright-green);
+	border-color: transparent;
+	padding: 3px;
+	border-radius: 8px;
+	text-align: center;
+	cursor: pointer;
+}
+
+/*  
+========================================================
+5. 예약 내역
+*/
+
+#hotel-reserve-check-total-container{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	
+	width: 100%;
+	margin: 0 25px;
+	
+}
+
+
+.hotel-reserve-check-common-container{
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center; 
+	
+	width: 85%;
+	
+	border-bottom: var(--blue-gray) 1px solid;
+}
+
+.hotel-reserve-check-common-container:last-child{
+	border-bottom-color: transparent;
+}
+
+
+
+.hotel-check-label-wrapper{
+	position: relative;
+	flex-basis: 30%;
+	padding: 20px;
+}
+
+
+
+.hotel-check-content-wrapper{
+	position: relative;
+	
+	flex-basis: 70%;
+	font-weight: bold;
+	padding: 20px;
+	padding-right: 0;
+	
+	text-align: center;
+	
+}
+
+/*sub-container  */
+
+.hotel-sub-check-container{
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: center; 
+	
+	padding: 15px;
+	padding-right: 0;
+	border-bottom: var(--blue-gray) 1px solid;
+}
+
+.hotel-sub-check-container:nth-child(3),
+.hotel-sub-check-container:nth-child(6),
+.hotel-sub-check-container:last-child{
+	border-bottom-color: transparent;
+}
+
+.hotel-sub-check-label-wrapper{
+	position: relative;
+	flex-basis: 40%;
+	font-weight: normal;
+	
+	display:flex;
+	justify-content: flex-start;
+}
+
+.hotel-sub-check-content-wrapper{
+	position: relative;
+	flex-basis: 60%;
+	
+	display: flex;
+	justify-content: flex-end;
+	padding-right: 5px;
+}
+
+/*
+========================================================
+6. 결제 수단 선택 
+*/
+
+button#go_payment{
+	width: 50%;
+	font-size: 1.2em;
+	font-weight: bold;
+	margin: 15px;
+	padding: 18px 0;
+	border-color: transparent;
+	border-radius: 5px;
+	
+	background-color: var(--mid-green);
+	color: #fff;
+	cursor: pointer;
+	
+}
+
+button#go_payment:hover{
+	background-color: var(--dark-green);
+}

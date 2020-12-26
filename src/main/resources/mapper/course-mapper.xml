@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+  <mapper namespace="courseMapper">
+  
+  <insert id="insertBoard">
+        insert all
+        into board values (seq_bo_no.nextval,2,#{courseTitle},null,#{courseWriter},0,null,default,sysdate)
+        into course values (seq_co_no.nextval,seq_bo_no.currval,#{theme},#{memo},#{courseDay},#{courseName},#{courseX},#{courseY},#{distance})
+        into img_file values (seq_file_no.nextval,seq_bo_no.currval,#{originName},#{changeName},1,null,default)
+        select * from dual
+  </insert>
+  
+  <select id="countList" resultType="_int">
+        select count(*)
+        from course
+  </select>
+  
+  <select id="countList1" resultType="_int">
+        select count(*)
+        from course
+        where theme = '가족'
+  </select>
+  
+  <select id="countList2" resultType="_int">
+        select count(*)
+        from course
+        where theme = '나홀로'
+  </select>
+  
+  <select id="countList3" resultType="_int">
+        select count(*)
+        from course
+        where theme = '커플'
+  </select>
+  
+  <select id="countList4" resultType="_int">
+        select count(*)
+        from course
+        where theme = '우정'
+  </select>
+  
+  <select id="countList5" resultType="_int">
+        select count(*)
+        from course
+        where theme = '액티비티'
+  </select>
+  
+  <select id="selectCourseList" resultMap="courseResultSet">
+        select c.course_no, bo_no, m.nickname, b.bo_title, c.course_name, c.course_day,i.change_name,c.course_distance  
+        from course c
+        join board b using(bo_no)
+        join img_file i using(bo_no)
+        join member m using(member_id)
+        order by bo_no desc
+  </select>
+  
+  <select id="selectCourseList1" resultMap="courseResultSet">
+        select c.course_no, bo_no, m.nickname, b.bo_title, c.course_name, c.course_day,i.change_name,c.course_distance  
+        from course c
+        join board b using(bo_no)
+        join img_file i using(bo_no)
+        join member m using(member_id)
+        where c.theme = '가족'
+        order by bo_no desc
+  </select>
+  
+  <select id="selectCourseList2" resultMap="courseResultSet">
+        select c.course_no, bo_no, m.nickname, b.bo_title, c.course_name, c.course_day,i.change_name,c.course_distance  
+        from course c
+        join board b using(bo_no)
+        join img_file i using(bo_no)
+        join member m using(member_id)
+        where c.theme = '나홀로'
+        order by bo_no desc
+  </select>
+  
+  <select id="selectCourseList3" resultMap="courseResultSet">
+        select c.course_no, bo_no, m.nickname, b.bo_title, c.course_name, c.course_day,i.change_name,c.course_distance  
+        from course c
+        join board b using(bo_no)
+        join img_file i using(bo_no)
+        join member m using(member_id)
+        where c.theme = '커플'
+        order by bo_no desc
+  </select>
+  
+  <select id="selectCourseList4" resultMap="courseResultSet">
+        select c.course_no, bo_no, m.nickname, b.bo_title, c.course_name, c.course_day,i.change_name,c.course_distance  
+        from course c
+        join board b using(bo_no)
+        join img_file i using(bo_no)
+        join member m using(member_id)
+        where c.theme = '우정'
+        order by bo_no desc
+  </select>
+  
+  <select id="selectCourseList5" resultMap="courseResultSet">
+        select c.course_no, bo_no, m.nickname, b.bo_title, c.course_name, c.course_day,i.change_name,c.course_distance  
+        from course c
+        join board b using(bo_no)
+        join img_file i using(bo_no)
+        join member m using(member_id)
+        where c.theme = '액티비티'
+        order by bo_no desc
+  </select>
+  
+  <resultMap type="Course" id="courseResultSet">
+        <id column="course_no" property="courseNo" />
+        <result column="bo_no" property="boardNo"/>
+        <result column="nickname" property="courseWriter"/>
+        <result column="bo_title" property="courseTitle"/>
+        <result column="course_name" property="courseName"/>
+        <result column="course_day" property="courseDay"/>
+        <result column="change_name" property="changeName"/>
+        <result column="course_distance" property="distance"/>
+  </resultMap>
+  
+  <select id="selectCourse" resultMap="courseResultSet2">
+      select course_no, bo_no, theme, memo, course_Day, course_name, course_x, course_y, course_distance, board.bo_title, img_file.change_name
+      from course
+      join board using(bo_no)
+      join img_file using(bo_no)
+      where course_no = #{coNo}
+  </select>
+  
+  <resultMap type="Course" id="courseResultSet2">
+        <id column="COURSE_NO" property="courseNo" />
+        <result column="BO_NO" property="boardNo"/>
+        <result column="THEME" property="theme"/>
+        <result column="MEMO" property="memo"/>
+        <result column="COURSE_DAY" property="courseDay"/>
+        <result column="COURSE_NAME" property="courseName"/>
+        <result column="COURSE_X" property="courseX"/>
+        <result column="COURSE_Y" property="courseY"/>
+        <result column="COURSE_DISTANCE" property="distance"/>
+        <result column="bo_title" property="courseTitle"/>
+        <result column="change_name" property="changeName"/>
+  </resultMap>
+  
+  </mapper>

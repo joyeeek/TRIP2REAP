@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis/org//DTD Mapper 3.0/EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="reviewMapper">
+	
+  	<select id="getListCount" parameterType="hashmap" resultType="_int">
+		select count(*)
+    	from board b
+    	LEFT JOIN MEMBER M
+            ON B.MEMBER_ID = M.MEMBER_ID
+  		where BO_DELETE_YN='N' 
+  		<choose>
+	  		<when test="cate.equals('all')">
+	  			AND (B.CA_CODE=3 OR B.CA_CODE=4)
+	  		</when>
+  			<when test="cate.equals('code3')">
+					 AND  B.CA_CODE=3     
+			 </when>
+  			  <when test="cate.equals('code4')">
+				  AND B.CA_CODE=4    
+	         </when>
+  		</choose>
+  		
+  		<choose>
+  			<when test="!writer.equals('all')">
+  				AND NICKNAME LIKE '%' || #{writer} || '%'
+  			</when>
+  			<when test="!title.equals('all')">
+  				AND b.BO_TITLE LIKE '%' || #{title} || '%'
+  			</when>
+  			<when test="!hashTag.equals('all')">
+  				AND b.BO_TAG LIKE '%' || #{hashTag} || '%'
+  			</when>
+  			
+  		</choose>
+  	</select>
+  	
+  	<select id="selectList" parameterType="hashmap" resultMap="reviewResultSet">
+  		select B.BO_NO,B.CA_CODE,B.BO_TITLE,B.BO_CONTENT,
+  			B.MEMBER_ID,B.BO_COUNT,B.BO_TAG,B.BO_DELETE_YN,B.REGDATE,
+  			C.CA_NAME,I.ORIGIN_NAME,I.CHANGE_NAME,M.NICKNAME
+        	, (SELECT COUNT(*) FROM LIKES L WHERE B.BO_NO = L.BO_NO AND L.LIKE_YN = 'Y') LIKE_CNT
+        from board b
+         left JOIN CATEGORY C 
+            ON B.CA_CODE = C.CA_CODE
+         left JOIN IMG_FILE I
+            ON B.BO_NO = I.BO_NO
+         LEFT JOIN MEMBER M
+            ON B.MEMBER_ID = M.MEMBER_ID
+         where BO_DELETE_YN='N' AND I.FILE_LEVEL=1
+         <choose>
+         <when test="cate.equals('all')">
+          AND (B.CA_CODE=3 OR B.CA_CODE=4) 
+         </when>
+         <when test="cate.equals('code3')">
+		 AND  B.CA_CODE=3     
+         
+         </when>
+         <when test="cate.equals('code4')">
+		  AND B.CA_CODE=4    
+         
+         </when>
+         <otherwise>
+         </otherwise>
+         
+         </choose>
+         
+         <choose>
+	         <when test="search.equals('all')">
+         	</when>
+         	<when test="search.equals('writer')">
+         	AND m.NICKNAME like '%' || #{searchInput} || '%'
+         	</when>
+         	<when test="search.equals('title')">
+         	AND b.BO_TITLE like '%' || #{searchInput} || '%'
+         	</when>
+         	<when test="search.equals('hashTag')">
+         	AND b.BO_TAG like '%' || #{searchInput} || '%'
+         	</when>
+         </choose>
+         
+   
+  		 <!-- select *
+  		 from board
+         JOIN CATEGORY USING(CA_CODE)
+   		 where BO_DELETE_YN='N' AND CA_CODE=3 OR CA_CODE=4
+   		 order by BO_NO desc  -->
+   		 <!-- select *
+  		 from board B
+         INNER JOIN CATEGORY C
+             ON B.CA_CODE = C.CA_CODE
+         INNER JOIN IMG_FILE I
+             ON B.BO_NO = I.BO_NO
+   		 where B.BO_DELETE_YN='N' AND B.CA_CODE=3 OR B.CA_CODE=4
+   		 order by B.BO_NO desc -->
+
+   		 
+  	</select>
+
+  <resultMap type="Review" id="reviewResultSet">
+      <id column="BO_NO" property="boNo"/>
+      <result column="CA_CODE" property="caCode"/>
+      <result column="BO_TITLE" property="boTitle"/>
+      <result column="BO_CONTENT" property="boContent"/>
+      <result column="MEMBER_ID" property="memberId"/>
+      <result column="BO_COUNT" property="boCount"/>
+      <result column="BO_TAG" property="boTag"/>
+      <result column="BO_DELETE_YN" property="boDeleteYN"/>
+      <result column="REGDATE" property="regDate"/>
+      <result column="CA_NAME" property="caName"/> 
+      <result column="ORIGIN_NAME" property="originName"/>
+      <result column="CHANGE_NAME" property="changeName"/>
+      <result column="NICKNAME" property="nickName"/>
+      <result column="LIKE_CNT" property="likeCnt"/>
+      <result column="LIKE_YN" property="likeYn"/>
+   </resultMap>
+   
+  	 <update id="addReadCount">
+   		update board
+   		set BO_COUNT= BO_COUNT + 1
+   		where BO_NO= #{boNo}
+   </update>
+ 
+
+   <select id="selectReview" resultMap="reviewResultSet">
+   	  <!--  select *
+       from board
+       JOIN CATEGORY USING(CA_CODE)
+       where BO_NO=#{boNo} and BO_DELETE_YN='N'  -->
+       select B.BO_NO,B.CA_CODE,B.BO_TITLE,B.BO_CONTENT,B.MEMBER_ID,B.BO_COUNT,B.BO_TAG,B.BO_DELETE_YN,B.REGDATE,C.CA_NAME,I.ORIGIN_NAME,I.CHANGE_NAME,NICKNAME
+        	, (SELECT COUNT(*) FROM LIKES L WHERE B.BO_NO = L.BO_NO AND L.LIKE_YN = 'Y') LIKE_CNT
+        	, (SELECT COUNT(*) FROM LIKES L WHERE B.BO_NO = L.BO_NO AND L.MEMBER_ID = #{loginUserId} AND L.LIKE_YN = 'Y') LIKE_YN
+        from board b
+         LEFT JOIN CATEGORY C 
+            ON B.CA_CODE = C.CA_CODE
+         LEFT JOIN IMG_FILE I
+            ON B.BO_NO = I.BO_NO
+         LEFT JOIN MEMBER M
+            ON B.MEMBER_ID = M.MEMBER_ID
+         where B.BO_NO = #{boNo} AND BO_DELETE_YN='N' AND (B.CA_CODE=3 OR B.CA_CODE=4) AND I.FILE_LEVEL=1
+   		 order by BO_NO desc 
+   </select> 
+   
+  <insert id="insertReview">
+		<!-- INSERT
+ 		INTO BOARD (BO_NO,MEMBER_ID,CA_CODE,BO_TITLE,BO_TAG,BO_CONTENT)
+ 		VALUES(SEQ_BO_NO.NEXTVAL,#{memberId},#{caCode},#{boTitle},#{boTag},#{boContent})	-->
+	
+ 		INSERT ALL 
+		INTO BOARD(BO_NO,MEMBER_ID,CA_CODE,BO_TITLE,BO_TAG,BO_CONTENT)
+		VALUES(SEQ_BO_NO.NEXTVAL,#{memberId},#{caCode},#{boTitle},#{boTag},#{boContent})
+		INTO IMG_FILE 
+		VALUES(SEQ_FILE_NO.NEXTVAL,SEQ_BO_NO.NEXTVAL,#{originName},#{changeName},1,'null',DEFAULT)
+		SELECT *
+		FROM DUAL
+  </insert>
+  
+  <insert id="insertBoard">
+  		INSERT
+ 		INTO BOARD (BO_NO,MEMBER_ID,CA_CODE,BO_TITLE,BO_TAG,BO_CONTENT)
+ 		VALUES(SEQ_BO_NO.NEXTVAL,#{memberId},#{caCode},#{boTitle},#{boTag},#{boContent})
+  </insert>
+  
+   <update id="updateReview">   
+         UPDATE BOARD B 
+			SET B.CA_CODE=#{caCode}, 
+			B.BO_TITLE=#{boTitle}, 
+			B.BO_CONTENT=#{boContent},
+   	        B.BO_TAG= #{boTag},  
+   	        B.REGDATE= sysdate
+         where B.bo_no = #{boNo}
+   </update>
+   
+   <update id="updateReviewPhoto">
+   			UPDATE IMG_FILE I
+         	SET 
+         	<if test="originName != null">
+         		ORIGIN_NAME=#{originName},
+         	</if>
+         		CHANGE_NAME=#{changeName}
+         	where I.bo_no=#{boNo}	
+   </update>
+   
+   
+   
+   <update id="deleteReview">
+       update board 
+       set BO_DELETE_YN='Y'
+       where bo_NO=#{boNo} 
+   </update> 
+   
+   <insert id="insertReply">
+       insert into reply
+       values (SEQ_re_no.NEXTVAL,#{boNo},#{memberId},sysdate,#{reContent},default)
+   </insert>
+   
+    <update id="deleteReply">
+       update reply r
+       set r.RE_DELETE_YN='Y'
+       where r.RE_NO = #{reNo} 
+   
+   </update> 
+   
+   <select id="selectReplyList" resultMap="replyResultSet">
+       select *
+       from reply r
+       LEFT JOIN MEMBER M
+            ON r.MEMBER_ID = M.MEMBER_ID
+       where BO_NO=#{boNo}
+       		AND RE_DELETE_YN = 'N' 		
+       order by re_no desc
+   </select> 
+   
+   <resultMap type="Reply" id="replyResultSet">
+   		<id property="reNo" column="RE_NO"/>
+		<result column="BO_NO" property="boNo" />
+		<result column="MEMBER_ID" property="memberId"/>
+		<result column="RE_DATE" property="reDate" />	
+		<result column="RE_CONTENT" property="reContent" />
+		<result column="RE_DELETE_YN" property="reDeleteYN" />
+		<result column="NICKNAME" property="nickName"/>
+   </resultMap>
+   
+   <insert id="insertDetailView">
+   	INSERT INTO IMG_FILE
+   	VALUES(
+   		SEQ_FILE_NO.NEXTVAL,
+   		SEQ_BO_NO.CURRVAL,
+   		#{originName},
+   		#{changeName},
+   		#{fileLevel},
+   		NULL,
+   		DEFAULT
+   	)
+   </insert>
+   
+   <resultMap type="Attachment" id="attachmentResultSet">
+   <id property="boNo" column="BO_NO"/>
+		<result column="FILE_NO" property="fileNo" />
+		<result column="ORIGIN_NAME" property="originName"/>
+		<result column="CHANGE_NAME" property="changeName" />	
+		<result column="FILE_LEVEL" property="fileLevel" />
+		<result column="FILE_PATH" property="filePath" />
+		<result column="FILE_DELETE_YN" property="fileDeleteYN"/>
+   </resultMap>
+   
+    <select id="selectDetailList" resultMap="attachmentResultSet">
+       select ORIGIN_NAME,CHANGE_NAME,FILE_LEVEL
+       from IMG_FILE I
+       where I.BO_NO=#{boNo}
+       order by FILE_NO desc
+   </select>
+   
+   
+   <update id="cancelLikeReview">
+	UPDATE LIKES
+	SET LIKE_YN='N'
+	WHERE BO_NO=#{boNo} AND MEMBER_ID=#{loginUserId}
+	</update>
+	
+	<select id="isSmashedLikeBtn" resultType="_int">
+	SELECT COUNT(*)
+	FROM LIKES
+	WHERE BO_NO=#{boNo} AND MEMBER_ID=#{loginUserId} AND LIKE_YN='Y'
+	</select>
+
+
+	<!--  좋아요 반영 -->
+	<select id="isCanceledLikeBtn" resultType="_int">
+	SELECT COUNT(*)
+	FROM LIKES
+	WHERE BO_NO=#{boNo} AND MEMBER_ID=#{loginUserId} AND LIKE_YN='N'
+	</select>
+
+	<update id="updateLikeReview">
+	UPDATE LIKES
+	SET LIKE_YN='Y'
+	WHERE BO_NO=#{boNo} AND MEMBER_ID=#{loginUserId}
+	</update>
+
+	<insert id="insertLikeReview">
+	INSERT INTO LIKES VALUES(#{boNo},'Y',#{loginUserId})
+	</insert>
+	
+	
+	<!-- 2020.11.30 -->
+	<!-- 좋아요 개수 카운트  -->
+	<select id="countReviewLike" resultType="_int">
+	SELECT COUNT(*)
+	FROM LIKES
+	WHERE BO_NO=#{boNo} AND LIKE_YN='Y'
+	</select>
+
+   
+  
+  
+
+</mapper>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,197 @@
+@charset "UTF-8";
+
+/* 전체 div */
+#all_div{
+	margin: 80px auto 0px auto;
+	width: 1000px;
+/* 	background: rgb(255, 225, 230, 0.5); */
+}
+
+/* img, 메뉴 이름 */
+#menu_div{
+	padding: 0px 0px 20px 10px;
+    border-bottom: 4px solid #efefef;
+	display: flex;
+/* 	background: rgb(200, 200, 255, 0.5); */
+}
+
+#menu_img{
+	width: 40px;
+	height: 40px;
+	text-align: left;
+	vertical-align: bottom;
+}
+
+#menu{
+	font-size: 30px;
+	font-weight: 700;
+	text-align: left;
+}
+
+/* 코스 등록 안내 멘트, 코스 정보 div */
+#insert_ment_div{
+	text-align: left;
+	margin: 20px auto;
+	width: 900px;
+	background: #efefef;
+	border-radius: 10px;
+}
+
+.required_fields{
+	color: red;
+}
+
+#course_info_table{
+	text-align: left;
+	margin: 15px 0px;
+	padding: 15px;
+}
+
+#ment_tr{
+	height: 80px;
+	vertical-align: top;
+}
+
+#course_info_table td{
+	padding: 8px;
+}
+
+#input_course_name{
+	width: 250px;
+	height: 19px;
+	padding-left: 7px;
+}
+
+#select_course_theme{
+	height: 25px;
+	padding: 3px;
+}
+
+#select_course_calendar{
+	height: 25px;
+	padding: 3px;
+}
+
+#input_course_tag{
+	width: 200px;
+	height: 19px;
+}
+
+#button_tag_plus{
+	font-size: 28px;
+	color: rgb(119, 175, 130);
+	position: relative;
+	right: 29px;
+	top: 6px;
+}
+
+.hashtag{
+	padding: 5px;
+	border-radius: 10px;
+	background: rgb(119, 175, 130); /* 메인컬러 */
+	color: white;
+}
+
+/* 코스에 담긴 각 여행지마다 div */
+#list_travel_div{
+	margin: 20px auto;
+	padding: 20px 60px 0px 60px;
+	width: 780px;
+	border-top: 1px solid black;
+/* 	border-bottom: 1px solid black; */
+	display: flex;
+}
+
+#travel_img_div{
+	flex: 2;
+}
+
+#travel_img{
+	width: 250px;
+	height: 170px;
+}
+
+#travel_info_div{
+	padding: 20px 0px;
+	flex: 3;
+}
+
+#travel_name{
+	font-size: 30px;
+	font-weight: 900;
+    margin-bottom: 5px;
+}
+
+#travel_cate{
+/* 	font-size: 15px; */
+	color: #497f55;
+    font-weight: 700;
+    margin-bottom: 22px;
+}
+
+#travel_menu_div{
+	padding-top: 5px;
+	text-align: right;
+	flex: 0.5;
+}
+
+#list_etc{
+	font-weight: bold;
+	font-size: xx-large;
+}
+
+/* 코스 설명 div */
+#course_content_div{
+	margin: 0px auto;
+	padding-top: 20px;
+	width: 900px;
+	text-align: center;
+	border-top: 1px solid black;
+}
+
+#course_content{
+	resize: none;
+}
+
+#text_count_div{
+	text-align: right;
+}
+
+#text_count{
+	color: rgb(119, 175, 130);
+	font-weight: 600;
+}
+
+/* 취소, 등록 버튼 div */
+#button_div{
+	text-align: center;
+	margin: 20px 0px;
+}
+
+#button_cancel{
+	width: 60px;
+	height: 30px;
+	border: none;
+	background: #EAEAEA;
+	border-radius: 5px;
+}
+
+#button_update{
+	width: 60px;
+	height: 30px;
+	border: none;
+	background: #77af82;
+	color: white;
+	border-radius: 5px;
+}
+
+/* button hover 시 cursor 변경 */
+#button_tag_plus, #list_etc, #button_cancel, #button_write:hover{
+	cursor: pointer;
+}
+
+/* input이나 button 클릭 시 outline 제거 */
+#input_course_name, #select_course_theme, #select_course_calendar, 
+#input_course_tag, #course_content, #button_cancel, #button_update:focus{
+	outline: none;
+}

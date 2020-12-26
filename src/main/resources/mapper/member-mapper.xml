@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="memberMapper">
+    <select id="memberLogin" resultMap="memberResultSet">
+        select *
+        from member
+        where member_id=#{memberId}
+              and m_status='Y'
+              and m_category='member'
+    </select>
+    <resultMap type="Member" id="memberResultSet">
+        <id column="MEMBER_ID" property="memberId" />
+        <result column="MEMBER_PWD" property="memberPwd" />
+        <result column="MEMBER_NAMES" property="memberName" />
+        <result column="NICKNAME" property="nickName" />
+        <result column="GENDER" property="gender" />
+        <result column="PHONE" property="phone" />
+        <result column="MEMBER_EMAIL" property="email" />
+        <result column="M_CATEGORY" property="mCategory" />
+        <result column="M_STATUS" property="mStatus" />
+    </resultMap>
+    
+    <select id="kakaoMemberCheck" resultType="_int">
+        select count(*)
+        from member
+        where member_id=#{memberId} AND m_category='kakao'
+    </select>
+    
+    <insert id="kakaoMemberInsert">
+        insert into member
+        values (#{memberId},null,null,#{nickName},null,null,null,'kakao',default )
+    </insert>
+    
+    <select id="naverMemberCheck" resultType="_int">
+        select count(*)
+        from member
+        where member_id=#{memberId} AND m_category='naver'
+    </select>
+    
+    <insert id="naverMemberInsert">
+        insert into member
+        values (#{memberId},null,null,#{nickName},null,null,null,'naver',default )
+    </insert>
+    
+    <update id="deleteMember">
+        update member
+        set m_status = 'N'
+        where member_id=#{memberId} and m_category='member'
+    </update>
+    
+    <delete id="deleteMemberOther">
+        delete from member
+        where member_id=#{memberId}
+    </delete>
+    
+    <select id="memberCheck" resultType="_int">
+        select count(*)
+        from member
+        where member_id=#{memberId}
+    </select>
+    
+    <select id="nicknameCheck" resultType="_int">
+        select count(*)
+        from member
+        where nickname=#{nickname}
+    </select>
+    
+    <select id="checkEmail" resultType="_int">
+        select count(*)
+        from certification
+        where email=#{email}
+    </select>
+    
+    <select id="phoneCheck" resultType="_int">
+        select count(*)
+        from member
+        where phone=#{phone}
+    </select>
+    
+    <update id="ranNumCheckUpdate">
+        update certification
+        set randomkey=#{randomKey}
+        where email=#{email}
+    </update>
+    
+    <insert id="ranNumCheck">
+        insert into certification
+        values (#{email},#{randomKey})
+    </insert>
+    
+    <insert id="insertMember">
+        insert into member
+        values (#{memberId},#{memberPwd},#{memberName},#{nickName},#{gender},#{phone},#{email},'member',DEFAULT )
+    </insert>
+    
+    <select id="searchIdPhone" resultMap="memberResultSet">
+        select member_id, member_names
+        from member
+        where member_names=#{memberName} and phone=#{phone} and m_status = 'Y'
+    </select>
+    
+    <select id="searchIdEmail" resultMap="memberResultSet">
+        select member_id, member_names
+        from member
+        where member_names=#{memberName} and member_email=#{email} and m_status = 'Y'
+    </select>
+    
+    <select id="searchPwdEmail" resultMap="memberResultSet">
+        select member_id, member_names
+        from member
+        where member_id=#{memberId} and member_email=#{email} and m_status = 'Y'
+    </select>
+    
+    <update id="updatePwd">
+        update member
+        set member_pwd=#{memberPwd}
+        where member_id=#{memberId} and m_category='member'
+    </update>
+    
+    <update id="updateMember">
+        update member
+        set member_pwd=#{memberPwd}, member_names=#{memberName}, nickname=#{nickName}, member_email=#{email}, phone=#{phone}, gender=#{gender}
+        where member_id=#{memberId} and m_category='member'
+    </update>
+    
+    <select id="selectMyTravel" resultType="_int">
+        select count(*)
+        from mytravel
+        where bo_no=#{boNo} and member_id=#{memberId}
+    </select>
+    
+    <insert id="insertMyTravel">
+        insert into mytravel
+        values (#{boNo},#{memberId})
+    </insert>
+    
+    <select id="selectTravelList" resultMap="travelResultSet">
+        select bo_no, b.bo_title, b.bo_Tag, t.tr_theme, i.change_name, b.bo_count
+        from mytravel m
+             join board b using(bo_no)
+             join travel t using(bo_no)
+             join img_file i using(bo_no)
+        where m.member_id=#{memberId}
+    </select>
+    
+    <resultMap type="MyTravel" id="travelResultSet">
+        <id column="bo_no" property="boNo"></id>
+        <result column="bo_title" property="bo_title"/>
+        <result column="bo_Tag" property="bo_Tag"/>
+        <result column="tr_theme" property="tr_theme"/>
+        <result column="change_name" property="change_name"/>
+        <result column="bo_count" property="boCount"/>
+    </resultMap>
+    
+    <delete id="deleteMyTravel">
+        delete from mytravel
+        where bo_no=#{boNo} and member_id=#{memberId}
+    </delete>
+    
+    <select id="countList" resultType="_int">
+        select count(*)
+        from board
+        where member_id=#{memberId} and ca_code=2
+    </select>
+    
+    <select id="selectCourseList" resultMap="mCourseResultSet">
+        select c.course_no, bo_no, b.member_id, b.bo_title, c.course_name, c.course_day,i.change_name,c.course_distance  
+        from course c
+        join board b using(bo_no)
+        join img_file i using(bo_no)
+        where member_Id=#{memberId}
+        order by bo_no desc
+    </select>
+    
+    <resultMap type="Course" id="mCourseResultSet">
+        <id column="course_no" property="courseNo" />
+        <result column="bo_no" property="boardNo"/>
+        <result column="member_id" property="courseWriter"/>
+        <result column="bo_title" property="courseTitle"/>
+        <result column="course_name" property="courseName"/>
+        <result column="course_day" property="courseDay"/>
+        <result column="change_name" property="changeName"/>
+        <result column="course_distance" property="distance"/>
+    </resultMap>
+     
+    <select id="selectReservation" resultMap="reservationResultSet">
+        SELECT *
+        FROM MY_HOTEL
+        WHERE MEMBER_ID=#{memberId}
+        ORDER BY CHECK_IN_DATE
+    </select>
+    
+    <resultMap type="MyHotel" id="reservationResultSet">
+        <id column="RESERVE_NO" property="reserveNo" />
+        <result column="BO_NO" property="boNo"/>
+        <result column="BO_TITLE" property="title"/>
+        <result column="ROOM_NO" property="roomNo"/>
+        <result column="RESERVE_PRICE" property="price"/>
+        <result column="RESERVE_TOTAL_PERSON_CNT" property="person"/>
+        <result column="CHECK_IN_DATE" property="checkIn"/>
+        <result column="CHECK_OUT_DATE" property="checkOut"/>   
+        <result column="CHANGE_NAME" property="imageName"/>
+        <result column="MEMBER_ID" property="memberId"/>
+    </resultMap>
+    
+    <select id="findOneRoomName" resultType="string">
+    	SELECT ROOM_NAME
+    	FROM ROOM
+    	WHERE ROOM_NO=#{roomNo}
+    </select>
+    
+    <update id="updateRefundCheck">
+     UPDATE HOTEL_RESERVATION
+     SET REFUND_CHECK='Y'
+     WHERE RESERVE_NO=#{reserveNo}
+    </update>
+    	
+	<select id="findReservationInfo" resultMap="hotelReservationResultSet">
+	SELECT *
+	FROM HOTEL_RESERVATION
+	WHERE RESERVE_NO=#{reserveNo}
+	</select>
+		
+	<resultMap type="Reservation" id="hotelReservationResultSet">
+		<id column="RESERVE_NO" property="reserveNo"/>
+		<result column="MEMBER_ID" property="memberId"/>
+		<result column="BO_NO" property="boNo"/>
+		<result column="ROOM_NO" property="roomNo"/>
+		<result column="RESERVE_PRICE" property="reservePrice"/>
+		<result column="RESERVE_ROOM_CNT" property="reserveRoomCnt"/>
+		<result column="RESERVE_TOTAL_PERSON_CNT" property="reserveTotalPersonCnt"/>
+		<result column="RESERVE_PERSON_ADULT_CNT" property="reservePersonAdultCnt"/>
+		<result column="RESERVE_PERSON_CHILD_CNT" property="reservePersonChildCnt"/>
+		<result column="CHECK_IN_DATE" property="checkInDate"/>
+		<result column="CHECK_OUT_DATE" property="checkOutDate"/>
+		<result column="RESERVE_CHECK" property="reserveCheck"/>
+		<result column="REFUND_CHECK" property="refundCheck"/>
+		<result column="RESERVE_NAME" property="reserveName"/>
+		<result column="RESERVE_PHONE" property="reservePhone"/>
+		<result column="RESERVE_EMAIL" property="reserveEmail"/>
+		<result column="PAYMENT_UID" property="paymentUID"/>
+		<result column="MERCHANT_UID" property="merchantUID"/>
+		<result column="PAYMENT_TYPE" property="paymentType"/>
+	</resultMap>
+	
+	<delete id="deleteMyCourse">
+        delete from course
+        where course_no=#{courseNo}
+    </delete>
+	
+</mapper>

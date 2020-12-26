@@ -1,0 +1,40 @@
+     div { margin: 0px; padding: 0px; }
+     input[type=text]:focus{ outline: none; }
+     input[type=password]:focus{ outline: none; }
+     input[type=button]:focus{ outline: none; }     
+     .swal-button:focus { box-shadow: none; }     
+     
+     /* 공통속성  */
+     #board_list{ margin : 40px auto 0px auto; width: 1300px;}
+          
+          
+     /* 내가 담은 여행지 설명란  */
+     #infor1 { height: 50px; }
+     #infor2 { display: inline-block; width:530px; }
+     #infor3 { display: inline-block; height: 50px; font-size: 30px; font-weight:bold; text-align: center; }
+     #up_space1 { height : 30px; }
+     #myTravelIcon { font-size: 32px; margin-right: 8px; color: rgb(69,86,104); }
+     
+     
+     /* 리스트  */
+     #list_all_div { margin: 30px auto 0px auto; width: 840px; }
+     #list_travel_div { width: 803px; padding: 15px 15px 13px 15px; background: white; display: flex; margin-bottom: 35px; 
+                        box-shadow: 0 4px 10px 0 #bec2c9; transition : box-shadow .3s ease; }
+     #list_empty_div { width: 840px; background: #efefef; margin-right: 30px; }
+     #travel_img{ width: 250px; height: 170px; }
+     #list_etc{ inline-flex; }
+     #travel_delete{ font-size: 20px; font-weight: 100; cursor: pointer; }
+     #travel_delete:hover{ font-size: 22px; font-weight: 900; }
+     #travel_name_writer_div{ padding: 34px 91px 0px 35px; width: 404px; }
+     #travel_no{ display : none; }
+     #travel_name_writer_div{ padding: 34px 91px 0px 35px; width: 404px; }
+     #travel_name:hover { cursor: pointer; text-decoration: underline; }
+     #travel_name { font-size: 25px; font-weight: 700; margin-bottom: 15px; }
+     #travel_tag{ display: inline-block; overflow: hidden; background: #fff; text-align: center; font-size: 16px;
+                  font-weight: 400; color: #777; border: 1px solid #d8d7d7; border-radius: 5px; }
+     #travel_theme{ color: #497f55; font-weight: 700; margin-bottom: 22px; font-size: 17px; } 
+     #myTravelBtn { margin-left: 370px; height: 30px; width: 120px; background: rgb(109,126,144); cursor: pointer; border: none; 
+                    color: white; font-weight: 600; }
+     #myTravelBtn:hover { background: rgb(119,136,154); }
+     #emptyTravel { text-align: center; margin-left: 20px; }
+     #myTravelBtn:focus{ outline: none; }

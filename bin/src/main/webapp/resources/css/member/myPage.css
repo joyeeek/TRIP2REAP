@@ -1,0 +1,29 @@
+     div { margin: 0px; padding: 0px; }
+     input[type=text]:focus{ outline: none; }
+     input[type=button]:focus{ outline: none; }
+     ul { margin : 0px; padding : 0px; list-style: none; }
+     
+     
+     /* 마이페이지 */
+     #space_1{ height: 200px; background: rgb(69,86,104); border: none; }
+     #info1 { height : 40px; }
+     #info2 { display: inline-block; width : 340px; }
+     #info3 { display: inline-block; height: 50px; font-size: 30px; font-weight:bold; color : white; text-align: center; }
+     #info4 { display: inline-block; width : 365px; }
+     #myPageLogo { font-size: 60px; color : white; }
+     #info5 { display: inline-block; }
+     #info6 { display: inline-block; color: white; font-size: 20px; font-weight: bold; vertical-align: middle; height : 50px; 
+              padding-left: 10px; padding-right: 5px; }
+     #info7 { display: inline-block; color: pink; font-size: 25px; font-weight: bold; height : 58px; vertical-align: middle; }
+     #info8 { display: inline-block; color: white; font-size: 20px; font-weight: bold; vertical-align: middle; height : 50px; padding-left: 5px; }
+     
+     
+     /* 메뉴  */
+     #menu { height : 50px; ; background-color : rgb(255,234,234); }
+     #menuSpace1 { height : 15px; }
+     #menuSpace2 { display: inline-block; width : 360px; }
+     .m1 { display: inline-block; margin-right: 50px; color: rgb(69,86,104); font-weight: bold; cursor: pointer; }
+     #me1 { margin-right: 5px; }
+     
+     
+     

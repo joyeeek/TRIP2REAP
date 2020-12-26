@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="hotelMapper">
+	<select id="getHotelListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM HOTEL_VIEW
+	</select>
+
+	<select id="selectHotelList" resultMap="hotelResultSet">
+		SELECT *
+		FROM HOTEL_VIEW
+		ORDER BY BO_NO DESC
+	</select>
+	<resultMap type="Hotel" id="hotelResultSet">
+		<id property="boNo" column="BO_NO"/>
+		<result property="caCode" column="CA_CODE"/>
+		<result property="boTitle" column="BO_TITLE"/>
+		<result property="boContent" column="BO_CONTENT"/>
+		<result property="memberId" column="MEMBER_ID"/>
+		<result property="boCount" column="BO_COUNT"/>
+		<result property="boTag" column="BO_TAG"/>
+		<result property="boDeleteYN" column="BO_DELETE_YN"/>
+		<result property="regDate" column="REGDATE"/>
+		<result property="hotelAddr" column="HOTEL_ADDRESS"/>
+		<result property="hotelLocalCode" column="HOTEL_LOCAL_CODE"/>
+		<result property="hotelSite" column="HOTEL_SITE"/>
+		<result property="hotelTel" column="HOTEL_TEL"/>
+		<result property="hotelReviewScore" column="HOTEL_REVIEW_SCORE"/>
+		<result property="hotelRank" column="HOTEL_RANK"/>
+		<result property="hotelOpenTime" column="HOTEL_OPEN_TIME"/>
+		<result property="hotelCloseTime" column="HOTEL_CLOSE_TIME"/>
+
+		<result property="hotelOptions" column="HOTEL_OPTION"/>
+
+		<result property="hotelCheckInTime" column="CHECK_IN"/>
+		<result property="hotelCheckOutTime" column="CHECK_OUT"/>
+	</resultMap>
+
+
+	<!-- 2020.11.25 - hotel DetailView -->
+	<select id="selectOneHotel" resultMap="hotelResultSet">
+		SELECT *
+		FROM HOTEL_VIEW
+		WHERE BO_NO=#{hId}
+
+	</select>
+
+	<update id="addReadCount">
+		UPDATE HOTEL_VIEW
+		SET BO_COUNT=BO_COUNT+1
+		WHERE BO_NO=#{hId}
+	</update>
+
+
+	<!--2020.11.25- hotel DetailView - hId에 등록된 방개수 구하기  -->
+	<select id="getRoomListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM ROOM
+		WHERE BO_NO=#{hId}
+	</select>
+
+	<!-- 2020.11.25 - hId에 등록된 호텔 방 종류리스트 구하기 -->
+	<select id="getRoomTypeList" resultType="string">
+	SELECT DISTINCT ROOM_TYPE
+	FROM ROOM
+	WHERE BO_NO=#{hId}
+	ORDER BY ROOM_TYPE
+	</select>
+
+	<!-- 2020.11.25 - hId에 등록된 호텔중 type에해당하는 방리스트를 구하기 -->
+	<select id="searchRoomTypeList" resultMap="roomResultSet">
+	SELECT *
+	FROM ROOM
+	WHERE BO_NO=#{hId} AND ROOM_TYPE=#{type}
+	</select>
+
+	<resultMap type="Room" id="roomResultSet">
+		<id property="roomNo" column="ROOM_NO"/>
+		<result property="boNo" column="BO_NO"/>
+		<result property="roomType" column="ROOM_TYPE"/>
+		<result property="roomName" column="ROOM_NAME"/>
+		<result property="pricePerDay" column="PRICE_PER_DAY"/>
+	</resultMap>
+
+
+	<!-- 2020.11.26 - 호텔 예약페이지로 이동하기 -->
+	<!--roomId에 해당하는 방종류 데이터 구하기. -->
+	<select id="selectOneRoomInfo" resultMap="roomResultSet">
+	SELECT *
+	FROM ROOM
+	WHERE ROOM_NO=#{roomId}
+	</select>
+
+	<!-- 2020.11.27- 호텔1개가 보유하는 방 가격중 가장싼 방가격-->
+	<select id="findHotelMinPrice" resultType="_int">
+	SELECT DISTINCT MIN(PRICE_PER_DAY)
+	FROM ROOM
+	WHERE BO_NO=#{boNo}
+	</select>
+	
+	<!-- 2020.12.13 -호텔1개가 보유하는 방 가격중 가장비싼 방가격 -->
+	<select id="findHotelMaxPrice" resultType="_int">
+	SELECT DISTINCT MAX(PRICE_PER_DAY)
+	FROM ROOM
+	WHERE BO_NO=#{boNo}
+	</select>
+
+	<select id="selectMinPriceRoomList" resultType="_int">
+	SELECT ROOM_NO
+	FROM ROOM
+	WHERE BO_NO=#{hId} AND PRICE_PER_DAY=#{minPrice}
+	ORDER BY ROOM_NO
+	</select>
+
+	<select id="isSmashedLikeBtn" resultType="_int">
+	SELECT COUNT(*)
+	FROM LIKES
+	WHERE BO_NO=#{hId} AND MEMBER_ID=#{loginUserId} AND LIKE_YN='Y'
+	</select>
+
+	<update id="cancelLikeHotel">
+	UPDATE LIKES
+	SET LIKE_YN='N'
+	WHERE BO_NO=#{hId} AND MEMBER_ID=#{loginUserId}
+	</update>
+
+
+	<!--  좋아요 반영 -->
+	<select id="isCanceledLikeBtn" resultType="_int">
+	SELECT COUNT(*)
+	FROM LIKES
+	WHERE BO_NO=#{hId} AND MEMBER_ID=#{loginUserId} AND LIKE_YN='N'
+	</select>
+
+	<update id="updateLikeHotel">
+	UPDATE LIKES
+	SET LIKE_YN='Y'
+	WHERE BO_NO=#{hId} AND MEMBER_ID=#{loginUserId}
+	</update>
+
+	<insert id="insertLikeHotel">
+	INSERT INTO LIKES VALUES(#{hId},'Y',#{loginUserId})
+	</insert>
+	
+	
+	<!-- 2020.11.30 -->
+	<!-- 좋아요 개수 카운트  -->
+	<select id="countHotelLike" resultType="_int">
+	SELECT COUNT(*)
+	FROM LIKES
+	WHERE BO_NO=#{hId} AND LIKE_YN='Y'
+	</select>
+	
+	<!-- 호텔 리뷰 등록  -->
+	<insert id ="insertReview">
+	INSERT INTO REPLY
+	VALUES(SEQ_RE_NO.NEXTVAL, #{boNo}, #{memberId}, SYSDATE, #{reContent}, DEFAULT)
+	
+	</insert>
+	
+	<insert id="insertHotelReview">
+	INSERT INTO HOTEL_REVIEW
+	VALUES(SEQ_RE_NO.CURRVAL, #{reviewScore})
+	</insert>
+	
+	
+	<resultMap  id="replyResultSet" type="HotelReply">
+		<id property="reNo" column="RE_NO"/>
+		<result property="boNo" column="BO_NO"/>
+		<result property="memberId" column="MEMBER_ID"/>
+		<result property="reDate" column="RE_DATE"/>	
+		<result property="reContent" column="RE_CONTENT"/>
+		<result property="reDeleteYN" column="RE_DELETE_YN"/>
+		<result property="reviewScore" column="REVIEW_SCORE"/>
+	</resultMap>
+	
+	
+	<!-- 호텔 리뷰 보여주기  -->
+	<select id="selectOneHotelReplyList" resultMap="replyResultSet">
+	SELECT *
+	FROM HOTEL_REVIEW_INFO_VIEW
+	WHERE BO_NO=#{hId} AND RE_DELETE_YN='N'
+	ORDER BY RE_NO DESC
+	</select>
+	
+	
+	<!-- 호텔 리뷰 작성자 닉네임  리스트 -->
+	<select id="selectOneHotelReplyNickNameList" resultType="string">
+	SELECT NICKNAME
+	FROM MEMBER JOIN REPLY USING (MEMBER_ID)
+	WHERE RE_DELETE_YN='N' AND BO_NO=#{hId}
+	ORDER BY RE_NO DESC
+	</select>
+	
+	<!-- 호텔점수 갱신하기  -->
+	<update id="updateHotelReviewScore">
+	UPDATE HOTEL
+	SET HOTEL_REVIEW_SCORE=(
+			SELECT AVG(REVIEW_SCORE)
+			FROM HOTEL_REVIEW_INFO_VIEW 
+			WHERE BO_NO=#{hId} AND RE_DELETE_YN='N')
+	WHERE BO_NO=#{hId}
+	</update>
+	
+	<!-- 호텔점수 갱신하기(호텔리뷰개수가 0개일때) -->
+	<update id="deleteHotelReviewScoreZero">
+	UPDATE HOTEL
+	SET HOTEL_REVIEW_SCORE=0
+	WHERE BO_NO=#{boNo}
+	</update>
+	
+	
+	<!-- 호텔리뷰삭제하기 -->
+	<update id="deleteHotelReview">
+	UPDATE REPLY
+	SET RE_DELETE_YN='Y'
+	WHERE BO_NO=#{boNo} AND RE_NO=#{reNo} AND RE_DELETE_YN='N'
+	</update>
+	
+	<!--호텔리뷰 삭제이후에, 리뷰개수 카운트 -->
+	<select id="countHotelReview" resultType="_int">
+	SELECT COUNT(*)
+	FROM REPLY
+	WHERE BO_NO=#{boNo} AND RE_DELETE_YN='N'
+	</select>
+	
+	
+	<!-- 2020.12.01 , 2020.12.08-->
+	<!-- 상세검색 (modal) - 검색조건에 만족하는 호텔번호를 구한다 -->
+	<select id="getDetailSearchResultHotelBoNoList" resultType="_int">
+	SELECT DISTINCT BO_NO
+	FROM HOTEL_ROOM_INFO_VIEW
+	<where>
+		BO_DELETE_YN='N'
+		<if test="searchLocalCode >0 ">
+			AND HOTEL_LOCAL_CODE=#{searchLocalCode}
+		</if>
+		<if test="searchHotelRank >0 ">
+			AND HOTEL_RANK=#{searchHotelRank}
+		</if>
+		<if test="searchHotelName !=null">
+			AND BO_TITLE LIKE #{searchHotelName}
+		</if>
+		
+		<if test="searchHotelPricePerDayType>0">
+			<choose>
+				<when test="searchHotelPricePerDayType==1">
+					AND <![CDATA[PRICE_PER_DAY < 50000 ]]>
+				</when>
+				
+				<when test="searchHotelPricePerDayType==2">
+					AND PRICE_PER_DAY BETWEEN 50000 AND 99999
+				</when>
+				
+				<when test="searchHotelPricePerDayType==3">
+					AND PRICE_PER_DAY BETWEEN 100000 AND 149999	
+				</when>
+				
+				<when test="searchHotelPricePerDayType==4">
+					AND PRICE_PER_DAY BETWEEN 150000 AND 199999
+				</when>
+				
+				<otherwise>
+					AND <![CDATA[ PRICE_PER_DAY >= 200000]]>
+				</otherwise>
+			</choose>
+		</if>
+	</where>
+	</select>
+	
+	<!--검색결과 조건을 만족하는 호텔번호 리스트에 해당하는 호텔정보를 구한다. -->
+	<select id="selectDetailSearchHotelList" resultMap="hotelResultSet">
+	SELECT *
+	FROM HOTEL_VIEW
+	WHERE BO_DELETE_YN='N'
+	<if test="searchBoNoList !=null">
+		AND BO_NO IN
+		<foreach item="boNo" index="index" collection="searchBoNoList" 
+				open="(" separator="," close=")">
+		#{boNo}
+		</foreach>
+	</if>	
+	</select>
+	
+	<select id="selectOneHotelMinPrice" resultType="_int">
+	SELECT MIN(PRICE_PER_DAY)
+	FROM HOTEL_ROOM_INFO_VIEW
+	WHERE BO_NO=#{hId}
+	</select>
+<!-- 은강  -->
+
+	<!-- 2020.12.03 - 호텔 등급순 내림차순 정렬 -->
+	<!-- 2020.12.09 - 호텔 등급순 내림차순 정렬에 사용 -->
+	<select id="sortRankDescendent" resultMap="hotelResultSet">
+	SELECT *
+	FROM HOTEL_VIEW
+	ORDER BY NVL(HOTEL_RANK,0) DESC, BO_NO
+	</select>
+	
+	<!-- 2020.12.03 - 호텔 평점순 내림차순 정렬 -->
+	<!-- 2020.12.09 - 호텔 평점순 내림차순 정렬  -->
+	<select id="sortPopularDescendent" resultMap="hotelResultSet">
+	SELECT *
+	FROM HOTEL_VIEW
+	ORDER BY HOTEL_REVIEW_SCORE DESC, BO_NO
+	</select>
+	
+	<!-- 2020.12.04  -->
+	<!-- 2020.12.09 - 호텔 방최저가 중 가격이 가장높은순으로 정렬 + 페이징까지 포함(동적쿼리문)  -->
+	<select id="sortHighPrice" resultMap="hotelResultSet">
+	SELECT BO_NO, CA_CODE, BO_TITLE, BO_CONTENT, MEMBER_ID, BO_COUNT, BO_TAG, 
+        BO_DELETE_YN, REGDATE, HOTEL_ADDRESS, HOTEL_LOCAL_CODE, HOTEL_SITE,
+        HOTEL_TEL, HOTEL_REVIEW_SCORE, HOTEL_RANK, HOTEL_OPEN_TIME,
+        HOTEL_CLOSE_TIME, HOTEL_OPTION, CHECK_IN, CHECK_OUT
+	FROM HOTEL_VIEW 
+    	JOIN HOTEL_MINPRICE_ORDER_VIEW USING (BO_NO)
+	ORDER BY MIN_PRICE DESC, BO_NO
+	</select>
+	
+	<!--2020.12.04  -->
+	<!-- 2020.12.09 - 호텔 방최저가 중 가격이 가장낮은순으로 정렬 + 페이징까지 포함(동적쿼리문)  -->
+	<select id="sortLowPrice" resultMap="hotelResultSet">
+	SELECT BO_NO, CA_CODE, BO_TITLE, BO_CONTENT, MEMBER_ID, BO_COUNT, BO_TAG, 
+        BO_DELETE_YN, REGDATE, HOTEL_ADDRESS, HOTEL_LOCAL_CODE, HOTEL_SITE,
+        HOTEL_TEL, HOTEL_REVIEW_SCORE, HOTEL_RANK, HOTEL_OPEN_TIME,
+        HOTEL_CLOSE_TIME, HOTEL_OPTION, CHECK_IN, CHECK_OUT
+	FROM HOTEL_VIEW 
+	    JOIN HOTEL_MINPRICE_ORDER_VIEW USING (BO_NO)
+	ORDER BY MIN_PRICE, BO_NO
+	</select>
+	
+	
+	<!--2020.12.07 - 호텔등록  -->
+	<insert id="insertBoard">
+	INSERT INTO BOARD VALUES(
+		SEQ_BO_NO.NEXTVAL,
+		5,
+		#{boTitle},
+		#{boContent},
+		#{memberId},
+		DEFAULT,
+		#{boTag},
+		DEFAULT,
+		SYSDATE
+	)
+	</insert>
+	
+	<insert id="insertHotel">
+	INSERT INTO HOTEL VALUES(
+		SEQ_BO_NO.CURRVAL,
+		#{hotelAddr},
+		#{hotelLocalCode},
+		#{hotelSite},
+		#{hotelTel},
+		DEFAULT,
+		#{hotelRank},
+		#{hotelOpenTime},
+		#{hotelCloseTime},
+		#{hotelOptions},
+		#{hotelCheckInTime},
+		#{hotelCheckOutTime}
+	)
+	</insert>
+	
+	<!--2020.12.08 - 호텔 썸네일이미지/ 디테일이미지 등록  -->
+	<insert id="insertOneHotelImg">
+	INSERT INTO IMG_FILE
+	VALUES(
+		SEQ_FILE_NO.NEXTVAL,
+		SEQ_BO_NO.CURRVAL,
+		#{originName},
+		#{changeName},
+		#{fileLevel},
+		#{filePath},
+		DEFAULT
+	)
+	</insert>
+	
+	
+	<!--2020.12.07 - 방등록  -->
+	<insert id="insertRoom">
+	INSERT INTO ROOM VALUES(
+		SEQ_ROOM_NO.NEXTVAL,
+		SEQ_BO_NO.CURRVAL,
+		#{roomType},
+		#{roomName},
+		#{pricePerDay}
+	)
+	</insert>
+	
+	
+	<!-- 호텔 삭제  -->
+	<update id="deleteBoard">
+	UPDATE BOARD
+	SET BO_DELETE_YN='Y'
+	WHERE BO_NO=#{hId}
+	</update>
+	
+	
+	<!-- 2020.12.08 : 삭제에 필요-  boNo과 관련된 호텔 이미지를 구한다. -->
+	<select id="selectHotelImgList" resultMap="imgFileResultSet">
+	SELECT *
+	FROM IMG_FILE
+	WHERE BO_NO=#{hId} AND FILE_DELETE_YN='N'
+	</select>
+	
+	<resultMap type="Attachment" id="imgFileResultSet">
+		<id property="fileNo" column="FILE_NO" />
+		<result property="boNo" column="BO_NO"/>
+		<result property="originName" column="ORIGIN_NAME"/>
+		<result property="changeName" column="CHANGE_NAME"/>
+		<result property="fileLevel" column="FILE_LEVEL"/>
+		<result property="filePath" column="FILE_PATH"/>
+		<result property="fileDeleteYN" column="FILE_DELETE_YN"/>
+	</resultMap>
+	
+	<!-- 2020.12.08 - 호텔이미지 1개 삭제하기 -->
+	<update id="deleteOneHotelImg">
+	UPDATE IMG_FILE
+	SET FILE_DELETE_YN='Y'
+	WHERE FILE_NO =#{fileNo}
+	</update>
+	
+	<!-- 2020.12.08 - 호텔썸네일 이미지 구하기 -->
+	<select id="selectOneHotelThumbnailImg" resultMap="imgFileResultSet">
+	SELECT FILE_NO, BO_NO, ORIGIN_NAME, CHANGE_NAME, FILE_LEVEL, FILE_PATH, FILE_DELETE_YN
+	FROM HOTEL_THUMBNAIL_IMG_VIEW
+	WHERE BO_NO=#{boNo}
+	</select>
+	
+	<!--2020.12.08 - 호텔 디테일 이미지 리스트 구하기  -->
+	<select id="selectDetailImgList" resultMap="imgFileResultSet">
+	SELECT FILE_NO, BO_NO, ORIGIN_NAME, CHANGE_NAME, FILE_LEVEL, FILE_PATH, FILE_DELETE_YN
+	FROM HOTEL_DETAIL_IMG_VIEW
+	WHERE BO_NO=#{boNo}
+	</select>
+	
+	<!--2020.12.15 - 호텔예약등록  -->
+	<insert id="insertReservation">
+	INSERT INTO 
+	HOTEL_RESERVATION 
+	VALUES(
+		SEQ_RESERVE_NO.NEXTVAL,
+		#{memberId},
+		#{boNo},
+		#{roomNo},
+		#{reservePrice},
+		#{reserveRoomCnt},
+		#{reserveTotalPersonCnt},
+		#{reservePersonAdultCnt},
+		#{reservePersonChildCnt},
+		#{checkInDate},
+		#{checkOutDate},
+		DEFAULT,
+		DEFAULT,
+		#{reserveName},
+		#{reservePhone},
+		#{reserveEmail},
+		#{paymentUID},
+		#{merchantUID},
+		#{paymentType}
+	)
+	</insert>
+	
+	<!-- 2020.12.21 -->
+	<select id="selectRoomList" resultMap="roomResultSet">
+	SELECT *
+	FROM ROOM
+	WHERE BO_NO=#{hId}
+	</select>
+</mapper>

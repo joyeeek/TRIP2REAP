@@ -1,0 +1,211 @@
+@charset "UTF-8";
+section { margin: 0px auto; width:1300px; } 
+     
+   /* 공통속성  */
+#board_common{ margin : 40px auto 0px auto;}  
+
+
+/* 전체 div */
+
+#board{
+
+	margin-left:150px;
+	width: 1000px;
+	display: flex;
+	border-bottom: 4px solid #eee;
+	padding-bottom:30px;
+
+}
+
+#board_table{
+	
+    width: 1000px;
+
+    border-collapse: collapse;
+    
+    margin-top:25px;
+ 
+  }
+  
+#paging_table_div{
+	padding-left:150px;
+	margin-right:50px;
+}
+ 
+#paging_table{
+	width:1000px
+}
+.center-block{
+	height:100px;
+	width:100px;
+	border-radius: 5px;
+}
+
+.board_list{
+    border-bottom: 2px solid #eee;
+
+    padding: 15px;
+
+  }
+
+#all_div{
+	margin: 80px auto 0px auto;
+	width: 1000px;
+	border-bottom: 4px solid #eee;
+}
+
+/* img, 메뉴 이름, 검색 div */
+
+
+#menu_left_div{
+	margin-bottom: 20px;
+	text-align: left;
+	flex: 1;
+
+}
+
+
+#menu{
+	font-size: 30px;
+	font-weight: 700;
+	text-align: left;
+}
+
+
+.bo_btn{
+	width: 60px;
+	height: 30px;
+	border: none;
+	
+	border-radius: 3px;
+	margin-right:-7px;
+
+}
+#bo_btn{
+	padding-left:690px;
+}
+
+#bo_btn1{
+	color: black;
+	font-weight:bold;;
+	background-color: light-gray;
+}
+#bo_btn2{
+	color: white;
+	font-weight:bold;;
+	
+	background: #77af82; 
+}
+
+#cate_btn{
+	
+
+}
+
+button:hover{
+	border:none;
+	font-weight:bold;
+	background: #77af82;
+}
+.page_btn{
+	border:none;
+	border-radius: 10px;
+	width:30px;
+	height:30px;
+	
+}
+#paging_table td{
+	width:50px;
+	padding:5px;
+}
+#write_btn{
+	font-weight:bold;;
+	padding-right:5px;
+	width: 60px;
+	height: 30px;
+	border: none;
+	background: #77af82;
+	color: white;
+	border-radius: 3px;
+	margin-right:-7px;
+}
+
+#select_search{
+	width:75px;
+	height:25px;
+	border-radius:50px;
+	align-items:center;
+	
+}
+#search{
+	height:25px;
+}
+#search_btn{
+	border:none;
+	background-color:white;
+	margin-left:-30px;
+	margin-right:65px;
+	height:20px;
+}
+
+#search_btn:hover{
+	background-color: #eee;
+}
+
+.hashTag{
+	
+	color:darkblue;
+	font-weight:1000;
+	
+	
+}
+
+.hashTagSpan{
+	
+	border-radius:5px;
+	
+
+}
+
+#photozone{
+	width:50px;
+}
+
+#botitle{
+	width:600px;
+}
+
+#writer{
+	width:100px;
+}
+
+#date{
+	width:120px;
+}
+
+#count{
+	width:75px;
+}
+
+#like{
+	width:75px;
+}
+
+.searchbar{
+
+	margin-left:770px;
+	padding-left:150px;
+	margin-bottom:-23px;
+	display:inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+

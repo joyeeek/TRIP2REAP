@@ -1,0 +1,63 @@
+     div { margin: 0px; padding: 0px; }
+     .swal-button:focus { box-shadow: none; } 
+     
+     /* 공통속성  */
+     #board_list{ margin : 40px auto 0px auto; width: 1300px;}
+     
+     /* 인증방법 설명란 */
+     #space_1{ height: 50px; }
+     #space_2{ height: 100px; width:1300px; }
+     #info1 { display: inline-block; width:533px; }
+     #info2 { display: inline-block; height: 50px; font-size: 30px; font-weight:bold; text-align: center; }
+     #info3 { display: inline-block; width:200px; }
+     #info4 { display: inline-block; width:505px; }
+     #info5 { display: inline-block; font-weight:bold; color:darkgray; text-align: right; }
+     
+     /* 테이블 상단바  */
+     #space_3{ height: 30px; }
+     #space_4{ display:inline-block; width:250px; }
+     #loginBox { display:inline-block; height:300px; width:730px; border: 1px solid rgb(213, 213, 213); }
+     
+     /* 아이디가 존재하지 않으면 */
+     #noIdSpace1 { height: 80px; }
+     #noId { text-align: center; font-size: 20px; font-weight: bold; }
+     #noIdSpace2 { height: 40px; }
+     #noIdDiv { text-align: center; }
+     #noIdJoin { background-color: rgb(119,175,130); color: white; border: none;
+              width: 170px; height: 40px; font-weight: bold; cursor: pointer; }
+     #noIdSpace3 { display: inline-block; width: 10px; }
+     #noIdSearch { background-color: white; color:darkgray; border: 1px solid darkgray;
+              width: 170px; height: 40px; font-weight: bold; cursor: pointer; }
+     #noIdJoin, #noIdSearch:focus{ outline: none; }
+     
+     /* 아이디가 존재하면 */
+     #searchIdSpace1 { height: 40px; }
+     #searchIdInfo { text-align: center; }
+     #searchId { display : inline-block; text-align: center; font-size: 15px; font-weight: bold; color: rgb(119,175,130);  }
+     #searchId2 { display : inline-block; text-align: center; font-size: 15px; font-weight: bold; }
+     #textBox { display : inline-block; border: 1px solid rgb(213, 213, 213); }
+     #textBox2 { display : inline-block; border: 1px solid rgb(213, 213, 213); }
+     #changePwd { display: inline-block; width: 270px; height: 40px; border: none; margin-left: 15px; }
+     #pwdCheck { display: none; color: red; font-size: 14px; }
+     #pwdCheck2 { display: none; color: red; font-size: 14px; }
+     #searchIdSpace2 { height: 10px; }
+     #searchIdSpace3 { display : inline-block; width: 215px; }
+     #searchIdSpace4 { height: 30px; }
+     #changePwd2 { display: inline-block; width: 270px; height: 40px; border: none; margin-left: 15px; }
+     #searchIdDiv { text-align: center; }
+     #searchPwdBtn { background-color: rgb(119,175,130); color: white; border: none;
+                    width: 170px; height: 40px; font-weight: bold; cursor: pointer; }
+     #searchIdSpace5 { display: inline-block; width: 10px; }
+     #searchIdMain { background-color: white; color:darkgray; border: 1px solid darkgray;
+                      width: 170px; height: 40px; font-weight: bold; cursor: pointer; }
+     #searchIdMain, #searchPwdBtn, #changePwd, #changePwd2:focus{ outline: none; }
+     
+     
+     /* swal  */
+     .swal-modal { border: 12px solid lightgray; }
+     .swal-footer { text-align: center; }
+     .swal-button { background-color: rgb(255,234,234); font-size: 12px; text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3); color:gray; }
+     .swal-text { font-size: 15px; text-align: center; line-height: 23px; } 
+     .swal-button:not([disabled]):hover { background-color: rgb(255,216,216); }
+     
+     

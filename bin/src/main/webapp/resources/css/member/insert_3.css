@@ -1,0 +1,39 @@
+
+     div { margin: 0px; padding: 0px; }
+     #successBtn:focus{ outline: none; }
+     
+     /* 공통속성  */
+     #board_list{ margin : 40px auto 0px auto; width: 1300px;}
+          
+          
+     /* 회원가입 설명란 */
+     #space_1{ height: 50px; }
+     #space_2{ height: 100px; width:1300px; }
+     #info1 { display: inline-block; width:585px; }
+     #info2 { display: inline-block; height: 50px; font-size: 30px; font-weight:bold; text-align: center; }
+     #info3 { display: inline-block; width:200px; }
+     #info4 { display: inline-block; width:480px; }
+     #info5 { display: inline-block; font-weight:bold; color:darkgray; }     
+     #info6 { display: inline-block; font-weight: bold; background: rgb(119,175,130); border-radius: 10px; color: white;
+              height : 23px; width: 24px; text-align: center; line-height: 23px; font-size: 14px; }
+     #info7 { display: inline-block; font-weight:bold; text-align: right; }
+     #space_3 { height : 20px; }
+     
+     
+     /* 성공 메시지 */
+     #successDiv1 { display : inline-block; width : 288px; height : 30px; }
+     #successDiv2 { display : inline-block; width : 700px; height : 400px; border: 2px solid lightgray; }
+     #success1 { height : 70px; }
+     #success2 { display : inline-block; width: 45px; }
+     #success3 { text-align: center; font-size: 35px; font-weight: bold; }
+     #success4 { height : 20px; }
+     #success5 { text-align: center; }
+     #successIcon { font-size : 55px; color:rgb(241,199,208); }
+     #success6 { text-align: center; }
+     #success7 { display : inline-block; color: rgb(119,175,130); font-weight: 900; font-size: 15px; }
+     #success8 { display : inline-block; font-size: 15px; font-weight: 600; }
+     #space_5 { height : 50px; }
+     #success9 { text-align: center; }
+     #successBtn { background: rgb(119,175,130); color:white; width: 150px; height : 40px; 
+                  border: none; text-align: center; font-size: 15px; font-weight: bold; cursor: pointer; }     
+     

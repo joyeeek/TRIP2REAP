@@ -1,0 +1,202 @@
+@charset "UTF-8";
+
+/* 전체 div */
+#all_div{
+	margin: 80px auto 0px auto;
+	width: 1000px;
+}
+
+/* img, 메뉴 이름 */
+#menu_div{
+	padding: 0px 0px 100px 10px;
+	display: flex;
+}
+
+#menu_img{
+	width: 40px;
+	height: 40px;
+	text-align: left;
+	vertical-align: bottom;
+}
+
+#menu{
+	font-size: 30px;
+	font-weight: 700;
+	text-align: left;
+}
+
+/* 코스이름, 지역 div */
+#course_title_div{
+	margin: 15px 0px;
+	text-align: center;
+}
+
+#course_name{
+	margin-bottom: 10px;
+	/* 메뉴 이름은 700 */
+/* 	font-weight: 800; */
+	font-size: xx-large;
+}
+
+#course_local{
+	margin-bottom: 40px;
+}
+
+/* 코스 테마, 일정 table */
+#course_cate_div{
+	background: rgba(239, 239, 239, 0.5);
+	border-radius: 5px;
+	width: 500px;
+	margin: 0px auto;
+}
+
+#course_cate_table{
+/* 	width: 300px; */
+	margin: 15px auto;
+	text-align: center;
+	border-spacing: 20px;
+}
+
+#course_cate_table td{
+	padding: 0px;
+}
+
+.fa-parachute-box, .fa-calendar-alt{
+	font-size: 50px;
+	color: #77af82;
+}
+
+.td_cate{
+	font-size: 12px;
+	text-align: left;
+}
+
+.td_cate_value{
+	font-weight: 600;
+}
+
+/* 조회수, 공유하기 div */
+#share_div{
+	padding: 0px 5px 10px 0px;
+	text-align: right;
+}
+
+.fa-share-alt{
+	width: 18px;
+	height: 18px;
+}
+
+#share_span{
+	font-size: 12px;
+}
+
+/* 코스 설명 div */
+#course_content{
+	width: 900px;
+	margin: 20px auto;
+}
+
+/* 코스 지도 div => API 사용 예정 */
+#map_div{
+	text-align: center;
+}
+
+#map_img{
+	width: 900px;
+}
+
+/* 코스에 담긴 여행지 목록 중 첫번째 div */
+#travel_first_div{
+	width: 900px;
+    margin: 50px auto 0px auto;
+}
+
+.table_travel{
+	margin: 0px auto;
+	width: 900px;
+	border: 2px solid #efefef;
+}
+
+.table_travel td{
+	padding: 10px;
+	height: 60px;
+}
+
+.travel_num{
+	margin: 35px 40px 35px 50px;
+	width: 30px;
+	height: 30px;
+	background: rgb(73, 127, 85);
+	color: white;
+	text-align: center;
+	line-height: 27px;
+	border-radius: 50%;
+}
+
+.travel_img{
+	width: 150px;
+	height: 150px;
+}
+
+.travel_name{
+	margin-bottom: 20px;
+	width: 500px;
+	font-size: 30px;
+	font-weight: 900;
+}
+
+.empty_div{
+	margin: 0px auto;
+	width: 842px;
+	background: #efefef;
+}
+
+#dot{
+	margin: 10px 47px;
+	color: rgb(73, 127, 85);
+}
+
+/* 코스에 담긴 여행지 목록 중 두번째부터의 div */
+.travel_all_div{
+	width: 900px;
+    margin: 0px auto;
+}
+
+/* 코스에 담긴 여행지 목록 중 첫번째 div */
+#travel_last_div{
+	width: 900px;
+    margin: 0px auto 50px auto;
+}
+
+/* 목록보기 버튼 div */
+#button_div{
+	text-align: center;
+	margin: 50px 0px;
+}
+
+#button_update{
+	width: 67px;
+	height: 30px;
+	border: none;
+	background: #EAEAEA;
+	border-radius: 5px;
+}
+
+#button_delete{
+	width: 67px;
+	height: 30px;
+	border: none;
+	background: #77af82;
+	color: white;
+	border-radius: 5px;
+}
+
+/* button hover 시 cursor 변경 */
+#share_span, #button_update, #button_delete:hover{
+	cursor: pointer;
+}
+
+/* input이나 button 클릭 시 outline 제거 */
+#button_update, #button_delete:focus{
+	outline: none;
+}
