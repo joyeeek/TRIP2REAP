@@ -87,19 +87,41 @@
 ## :desktop_computer: 화면 일부<br><br>
  - 메인화면<br>
 
-![](./images/main.png)
+![](./images/main.jpg)
 
 <br>
 
- - 수강신청<br>
+ - 로그인<br>
 
-![](./images/subject.JPG)
+![](./images/login.JPG)
 
 <br>
 
- - 게시판<br>
+ - 회원가입<br>
 
-![](./images/bulletin.JPG)
+![](./images/join.JPG)
 
+<br>
 
- 
+ - 마이페이지 일부<br>
+
+![](./images/myPage.JPG)
+
+<br>
+
+ - 여행코스 리스트<br>
+
+![](./images/courseList.JPG)
+
+<br>
+
+ - 여행코스 조회<br>
+
+![](./images/courseDetail.JPG)
+
+<br>
+
+ - 여행코스 등록<br>
+
+![](./images/insertCourse1.JPG)
+![](./images/insertCourse2.JPG)
