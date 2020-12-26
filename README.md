@@ -1,4 +1,4 @@
-# :school: TRIP2REAP (국내 여행정보 웹사이트)
+# :world_map: TRIP2REAP (국내 여행정보 웹사이트)
 ### 20.09.21 ~ 20.12.21
 
 :ok_person: &nbsp; 팀장 : 김기쁨<br>
