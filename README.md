@@ -64,8 +64,8 @@
 :orange_heart: 은강
 - 호텔 조회 / 등록 / 삭제
 - 리뷰 등록 / 삭제
-- 호텔 예약<br><br>
-- 리모컨(조회한 호텔/코스 리스트)
+- 호텔 예약
+- 리모컨(조회한 호텔/코스 리스트)<br><br>
 
 
 #
@@ -90,39 +90,39 @@
 
 ![](./images/main.JPG)
 
-<br>
+<br><br>
 
  - 로그인<br>
 
 ![](./images/login.JPG)
 
-<br>
+<br><br>
 
  - 회원가입<br>
 
 ![](./images/join.JPG)
 
-<br>
+<br><br>
 
  - 마이페이지 일부<br>
 
 ![](./images/myPage.JPG)
 
-<br>
+<br><br>
 
  - 여행코스 리스트<br>
 
 ![](./images/courseList.JPG)
 
-<br>
+<br><br>
 
  - 여행코스 조회<br>
 
 ![](./images/courseDetail.JPG)
 
-<br>
+<br><br>
 
  - 여행코스 등록<br>
 
 ![](./images/insertCourse1.JPG)
-![](./images/insertCourse2.JPG)
+![](./images/insertCourse2.JPG) <br><br>
