@@ -87,7 +87,7 @@
 ## :desktop_computer: 화면 일부<br><br>
  - 메인화면<br>
 
-![](./images/main.jpg)
+![](./images/main.JPG)
 
 <br>
 
