@@ -119,7 +119,7 @@
 
  - 마이페이지 일부<br>
 
-![](./images/myPage.JPG)
+![](./images/image/myPage.JPG)
 
 <br><br>
 
